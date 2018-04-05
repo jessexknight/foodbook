@@ -46,6 +46,8 @@ $(document).ready(function(){
       )
     }
     s['instructions'] += '</table>'
+    // link
+    s['link'] = '<a href="'+data['link']+'" target="_blank">original recipe</a>'
     // update the dom
     $('#page-title').html(data['title'])
     for (id in s){
