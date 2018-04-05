@@ -1,0 +1,38 @@
+body {
+  font-family: 'Ubuntu', sans-serif;
+  padding: 20px 5% 0% 5%;
+}
+table {
+  border-collapse: collapse;
+  width: 500px;
+}
+th, td {
+  padding: 8px;
+  border-color: ;
+  border-bottom: solid 1px #ddd;
+  border-top: solid 1px #ddd;
+  vertical-align: top;
+}
+
+#time td:nth-child(1) {
+  width: 100px;
+}
+#time td:nth-child(2) {
+  text-align: left;
+}
+
+#ingredients  td:nth-child(1),
+#instructions td:nth-child(1) {
+  width: 10px;
+  text-align: right;
+}
+
+#ingredients  td:nth-child(2),
+#instructions td:nth-child(2) {
+  text-align: right;
+}
+#ingredients td:nth-child(2) {
+  width: 50px;
+}
+
+/* tr:nth-child(odd) {background-color: #f2f2f2;} */
