@@ -11,7 +11,7 @@ $(document).ready(function(){
   function tcell(str,spec=''){
     return '<td '+spec+'>'+str+'</td>';
   }
-  $.getJSON('recipes/enchilada-casserole.json',function(data){
+  $.getJSON('recipes/oatmeal-pancakes.json',function(data){
     s = {}
     // title
     s['title'] = data['title']
@@ -21,7 +21,8 @@ $(document).ready(function(){
       trow(tcell('Prep Time:')+tcell(data['time']['prep']))+
       trow(tcell('Cook Time:')+tcell(data['time']['cook']))+
       '</table>';
-    console.log(s['time'])
+    // serves
+    s['serves'] = 'Serves: '+data['serves']
     // ingredients
     s['ingredients'] = '<table>'
     for (var g in data['ingredients']){
