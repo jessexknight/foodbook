@@ -32,7 +32,7 @@ th, td {
   text-align: right;
 }
 #ingredients td:nth-child(2) {
-  width: 60px;
+  min-width: 50px;
 }
 
 /* tr:nth-child(odd) {background-color: #f2f2f2;} */
