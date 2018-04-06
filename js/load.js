@@ -2,8 +2,8 @@ $(document).ready(function(){
   function hoverover(str,match,hover){
     return str;//.replace('???',' {'+match+'} ')
   }
-  function checkbox(value=false){
-    return '<input type="checkbox" value='+value+'></input>'
+  function checkbox(){
+    return '<input type="checkbox"/>'
   }
   function trow(str){
     return '<tr>'+str+'</tr>';
@@ -11,23 +11,27 @@ $(document).ready(function(){
   function tcell(str,spec=''){
     return '<td '+spec+'>'+str+'</td>';
   }
-  $.getJSON('recipes/oatmeal-pancakes.json',function(data){
+  $.getJSON('recipes/enchilada-casserole.json',function(data){
     s = {}
     // title
     s['title'] = data['title']
     s['page-title'] = data['title']
-    // time
-    s['time'] = '<table>'+
+    // overview
+    s['overview'] = '<table>'+
       trow(tcell('Prep Time:')+tcell(data['time']['prep']))+
       trow(tcell('Cook Time:')+tcell(data['time']['cook']))+
+      trow(tcell('Serves:')+tcell(data['serves']))+
       '</table>';
-    // serves
-    s['serves'] = 'Serves: '+data['serves']
+    // images
+    s['images'] = ''
+    for (var i in data['images']){
+      s['images'] += '<img src="img/'+data['images']+'""/>'
+    }
+    +data['images']
     // ingredients
     s['ingredients'] = '<table>'
     for (var g in data['ingredients']){
       s['ingredients'] += trow(
-        tcell(checkbox())+
         tcell(data['ingredients'][g])+
         tcell(g)
       )
@@ -41,7 +45,6 @@ $(document).ready(function(){
         instruction = hoverover(instruction,g.replace(/ *\([^)]*\) */g, ""),'')
       }
       s['instructions'] += trow(
-        tcell(checkbox(),   'valign="top"')+
         tcell(parseInt(i)+1,'valign="top"')+
         tcell(instruction)
       )
@@ -54,5 +57,14 @@ $(document).ready(function(){
     for (id in s){
       $('#'+id).html(s[id])
     };
+    // row reactive
+    $('.rowclick tr').click(function(event) {
+      $(this).toggleClass('selected');
+      if (event.target.type !== 'checkbox') {
+        $(':checkbox', this).attr('checked', function() {
+          return !this.checked;
+        });
+      }
+    });
   });
 });
