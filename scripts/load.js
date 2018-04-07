@@ -51,7 +51,7 @@ $(document).ready(function(){
     }
     s['instructions'] += '</table>'
     // link
-    s['link'] = '<a href="'+data['link']+'" target="_blank">original recipe</a>'
+    s['link'] = '<a href="'+data['link']+'" target="_blank">source</a>'
     // update the dom
     $('#page-title').html(data['title'])
     for (id in s){

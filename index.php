@@ -8,9 +8,10 @@
 <body>
   <div id='navbar' style='display: inline-block;'>
     <h3>Cook Book</h3>
-    <div class='rowclick' id='navlist'>
-    <?php
-    ?>
+    <div id='navlist'>
+    <table class='rowclick'>
+    <?php include 'scripts/get-recipes.php';?>
+  </table>
     </div>
   </div>
   <div id='recipe' style='display: inline-block;'>

@@ -1,10 +1,33 @@
 body {
   font-family: 'Ubuntu', sans-serif;
   margin: 50px auto;
+  width: 750px;
+}
+div {
+  padding: 0px;
+  margin: 0px;
+  vertical-align: top;
+}
+#navbar {
+  width: 200px;
+}
+#recipe {
   width: 500px;
+}
+a {
+  color: #c66;
+  text-decoration: none;
+}
+h1,h2,h3 {
+  margin-top: 10px;
+}
+a:hover {
+  color: #933;
 }
 table {
   border-collapse: collapse;
+}
+#recipe table {
   width: 500px;
 }
 th, td {
@@ -20,11 +43,12 @@ img {
 .rowclick {
   position: relative;
 }
-.rowclick tr {
+.rowclick tr:hover {
+  color: #933;
   cursor: pointer;
 }
 .rowclick tr.selected {
-  color: #999;
+  color: #f99;
 }
 .rowclick tr.selected :nth-child(2) {
   text-decoration-line: line-through;
@@ -35,7 +59,7 @@ img {
 #overview td:nth-child(2) {
   text-align: left;
 }
-.rowclick  td:nth-child(1) {
+#recipe .rowclick  td:nth-child(1) {
   text-align: right;
 }
 #ingredients td:nth-child(1) {
