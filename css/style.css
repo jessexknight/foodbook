@@ -4,25 +4,55 @@ body {
   width: 750px;
 }
 div {
-  padding: 0px;
+  padding: 10px 0px;
   margin: 0px;
   vertical-align: top;
 }
 #navbar {
   width: 200px;
+  padding-right: 30px;
 }
 #recipe {
   width: 500px;
+}
+h1,h2,h3 {
+  display: inline-block;
+  margin-top: 0px;
 }
 a {
   color: #c66;
   text-decoration: none;
 }
-h1,h2,h3 {
-  margin-top: 10px;
-}
 a:hover {
   color: #933;
+  cursor: pointer;
+}
+a h1, a h2, a h3 {
+  color: #000;
+}
+a h1:hover, a h2:hover, a h3:hover {
+  color: #933;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.collapse-button:before {
+  color: #000;
+  font-size: 25px;
+  font-family: FontAwesome;
+  position: relative;
+  vertical-align: top;
+  display: inline-block;
+  width: 0px;
+}
+.collapse-button:before {
+  left: -25px;
+  content: '\f107';
+}
+.collapse-button.closed:before {
+  left: -20px;
+  content: '\f105';
 }
 table {
   border-collapse: collapse;
@@ -32,12 +62,11 @@ table {
 }
 th, td {
   padding: 8px;
-  /* border-bottom: solid 1px #ddd;
-  border-top: solid 1px #ddd; */
+  border-bottom: solid 1px #ddd;
+  border-top: solid 1px #ddd;
   vertical-align: top;
 }
 img {
-  margin-top: 30px;
   width: 500px;
 }
 .rowclick {
@@ -50,8 +79,8 @@ img {
 .rowclick tr.selected {
   color: #f99;
 }
-.rowclick tr.selected :nth-child(2) {
-  text-decoration-line: line-through;
+td:first-child {
+  padding-left: 0px;
 }
 #overview td:nth-child(1) {
   width: 100px;
