@@ -9,10 +9,8 @@
 <body>
   <div id='navbar' style='display: inline-block;'>
     <h3>Cook Book</h3>
-    <div id='navlist'>
-    <table class='rowclick'>
-      <?php include 'scripts/get-recipes.php';?>
-    </table>
+    <div>
+      <table class='rowclick' id='recipe-table'></table>
     </div>
   </div>
   <div id='recipe' style='display: inline-block;'>
@@ -38,6 +36,6 @@
       <table class='rowclick collapse-content' id='instructions'></table>
     <div style='margin-top: 30px' id='link'></div></div>
   </div>
-  <script src='scripts/load.js'></script>
+  <script src='scripts/main.js'></script>
 </body>
 </html>

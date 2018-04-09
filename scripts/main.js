@@ -5,14 +5,18 @@ $(document).ready(function(){
   function hoverover(str,match,hover){
     return str;//.replace('???',' {'+match+'} ')
   };
-  function table(str){
-    return '<table>'+str+'</table>';
+  function htmlobject(obj,str,props=null){
+    if (props == null){
+      return '<'+obj+'>'+str+'</'+obj+'>';
+    } else {
+      return '<'+obj+' '+props+'>'+str+'</'+obj+'>';
+    };
   };
-  function trow(str){
-    return '<tr>'+str+'</tr>';
+  function trow(str,props=null){
+    return htmlobject('tr',str,props);
   };
-  function tcell(str,spec=''){
-    return '<td '+spec+'>'+str+'</td>';
+  function tcell(str,props=null){
+    return htmlobject('td',str,props);
   };
   function scaleing(amount,ratio,precision=100){
     split = amount.match('(.*?)\\s(\\S*)')
@@ -62,14 +66,15 @@ $(document).ready(function(){
           tcell(data['instructions'][i])
         );
       };
-      // update the dom
+      // add the recipe content
       for (var id in s){
         $('#'+id).html(s[id]);
       }
-      // add listeners
+      // listener: click-able table rows
       $('#recipe .rowclick tr').click(function(e){
         $(this).toggleClass('selected');
       });
+      // listener: serving size
       $('#serves').change(function(e){
         var ratio = parseFloat($(this)[0].value) / parseFloat(serves);
         $('#ingredients-cache tr td:first-child').each(function(i){
@@ -78,7 +83,16 @@ $(document).ready(function(){
       });
     });
   };
-  $('.nav-item').click(function(e){
+  // build the navbar
+  $.getJSON('list.json',function(list){
+    for (var i in list){(function(i){
+      $.getJSON(list[i],function(data){
+        $('#recipe-table').append(trow(tcell(data['title'],'class="nav-item" id="'+list[i]+'"')));
+      });
+    })(i)};
+  });
+  // listener: navbar clicks (change recipe)
+  $(document).on('click','.nav-item',function(e){
     $('.nav-item').removeClass('selected');
     $(this).addClass('selected');
     loadrecipe(this.id);
