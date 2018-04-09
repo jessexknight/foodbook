@@ -21,25 +21,22 @@
       <table>
         <tr><td>Prep Time:</td><td id='prep-time'></td></tr>
         <tr><td>Cook Time:</td><td id='cook-time'></td></tr>
-        <tr><td>Serves:</td><td id='serves'></td></tr>
+        <tr><td>Serves:   </td><td><input type='number' id='serves'></td></tr>
       </table>
     </div>
     <div>
       <a class='collapse-button closed'><h2>Images</h2></a>
-      <div class='collapse-content hidden' id='images'>
-      </div>
+      <div class='collapse-content hidden' id='images'></div>
     </div>
     <div>
       <a class='collapse-button'><h2>Ingredients</h2></a>
-      <table class='rowclick collapse-content' id='ingredients'>
-      </table>
+      <table class='rowclick collapse-content' id='ingredients'></table>
+      <table class='hidden' id='ingredients-cache'></div>
     </div>
     <div>
       <a class='collapse-button'><h2>Instructions</h2></a>
-      <table class='rowclick collapse-content' id='instructions'>
-      </table>
-    <div style='margin-top: 30px' id='link'></div>
-    </div>
+      <table class='rowclick collapse-content' id='instructions'></table>
+    <div style='margin-top: 30px' id='link'></div></div>
   </div>
   <script src='scripts/load.js'></script>
 </body>
