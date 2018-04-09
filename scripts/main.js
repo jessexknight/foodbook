@@ -1,4 +1,7 @@
 $(document).ready(function(){
+  function recipefile(id){
+    return 'recipes/'+id+'.json';
+  }
   function numfmt(num,precision){
     return (Math.round(precision*num)/precision).toString();
   };
@@ -27,7 +30,7 @@ $(document).ready(function(){
     };
   };
   function loadrecipe(id){
-    $.getJSON(id,function(data){
+    $.getJSON(recipefile(id),function(data){
       // serving
       serves = parseInt(data['serves']);
       $('#serves')[0].value = serves;
@@ -86,13 +89,14 @@ $(document).ready(function(){
   // build the navbar
   $.getJSON('list.json',function(list){
     for (var i in list){(function(i){
-      $.getJSON(list[i],function(data){
+      $.getJSON(recipefile(list[i]),function(data){
         $('#recipe-table').append(trow(tcell(data['title'],'class="nav-item" id="'+list[i]+'"')));
       });
     })(i)};
   });
   // listener: navbar clicks (change recipe)
   $(document).on('click','.nav-item',function(e){
+    history.pushState(null,null,'#'+this.id);
     $('.nav-item').removeClass('selected');
     $(this).addClass('selected');
     loadrecipe(this.id);
