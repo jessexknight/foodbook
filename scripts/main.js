@@ -24,73 +24,68 @@ $(document).ready(function(){
   function tcell(str,props=null){
     return htmlobject('td',str,props);
   };
-  function ingscale(amount,ratio,precision=100){
+  function iscale(amount,scale,precision=100){
     split = amount.match('(.*?)\\s(\\S*)')
     if (split == null) {
-      return numfmt(ratio*parseFloat(amount),  precision);
+      return numfmt(scale*parseFloat(amount),  precision);
     } else {
-      return numfmt(ratio*parseFloat(split[1]),precision)+' '+split[2];
+      return numfmt(scale*parseFloat(split[1]),precision)+' '+split[2];
     };
+  };
+  function itable(ingredients,scale,precision){
+    str = '';
+    for (var ingredient in ingredients){
+      str += trow(
+        tcell(iscale(ingredients[ingredient],scale,100))+
+        tcell(ingredient)
+      );
+    };
+    return str;
+  };
+  function stable(steps,ingredients,scale,precision){
+    str = '';
+    for (var index in steps){
+      step = steps[index]
+      for (var ingredient in ingredients){
+        step = tooltip(step,ingredient,iscale(ingredients[ingredient],scale,100));
+      }
+      str += trow(
+        tcell(parseInt(index)+1,'valign="top"')+
+        tcell(step)
+      );
+    };
+    return str;
   };
   function loadrecipe(id){
     $.getJSON(recipefile(id),function(data){
-      // serving
+      // store static data
       serves = parseInt(data['serves']);
       $('#serves')[0].value = serves;
-      s = {};
-      // title
-      s['title']      = data['title'];
-      s['page-title'] = data['title'];
       // overview
-      s['prep-time']  = data['time']['prep'];
-      s['cook-time']  = data['time']['cook'];
+      $('#title')     .html(data['title']);
+      $('#page-title').html(data['title']);
+      $('#prep-time') .html(data['time']['prep']);
+      $('#cook-time') .html(data['time']['cook']);
       // images
-      s['images'] = '';
+      $('#images').html('');
       for (var i in data['images']){
-        s['images'] += '<img class="image" src="img/'+data['images']+'""/>'
+        $('#images').append('<img class="image" src="img/'+data['images']+'""/>');
       };
       // link
-      s['link'] = '<a href="'+data['link']+'" target="_blank">source</a>'
+      $('#link').html('<a href="'+data['link']+'" target="_blank">source</a>');
       // ingredients
-      s['ingredients'] = '';
-      s['ingredients-cache'] = '';
-      for (var ingredient in data['ingredients']){
-        s['ingredients'] += trow(
-          tcell(ingscale(data['ingredients'][ingredient],1,100))+
-          tcell(ingredient)
-        );
-        s['ingredients-cache'] += trow(
-          tcell(ingscale(data['ingredients'][ingredient],1,10000))+
-          tcell(ingredient)
-        );
-      };
-      // instructions
-      s['instructions'] = '';
-      for (var index in data['instructions']){
-        instruction = data['instructions'][index]
-        for (var ingredient in data['ingredients']){
-          instruction = tooltip(instruction,ingredient,data['ingredients'][ingredient]);
-          // console.log(instruction)
-        }
-        s['instructions'] += trow(
-          tcell(parseInt(index)+1,'valign="top"')+
-          tcell(instruction)
-        );
-      };
-      // add the recipe content
-      for (var id in s){
-        $('#'+id).html(s[id]);
-      }
+      $('#ingredients').html(itable(data['ingredients'],1,100));
+      // steps
+      $('#steps').html(stable(data['steps'],data['ingredients'],1,100));
       // listener: click-able table rows
       $('#recipe .rowclick tr').click(function(e){
         $(this).toggleClass('selected');
       });
-      // listener: serving size
+      // listeners: change serving size
       $('#serves').change(function(e){
-        var ratio = parseFloat($(this)[0].value) / parseFloat(serves);
-        $('#ingredients-cache tr td:first-child').each(function(i){
-          $('#ingredients tr td:first-child')[i].innerHTML = ingscale(this.innerHTML,ratio);
-        });
+        var scale = parseFloat($(this)[0].value) / parseFloat(serves);
+        $('#ingredients').html(itable(              data['ingredients'],scale,100));
+        $('#steps')      .html(stable(data['steps'],data['ingredients'],scale,100));
       });
     });
   };
@@ -102,13 +97,14 @@ $(document).ready(function(){
       });
     })(i)};
   });
-  // listener: navbar clicks (change recipe)
+  // listeners: navbar clicks (change recipe)
   $(document).on('click','.nav-item',function(e){
     history.pushState(null,null,'#'+this.id);
     $('.nav-item').removeClass('selected');
     $(this).addClass('selected');
     loadrecipe(this.id);
   });
+  // listeners: collapse sections
   $('.collapse-button').click(function(e){
     $(this).toggleClass('closed');
     $(this).next('.collapse-content').toggleClass('hidden');
