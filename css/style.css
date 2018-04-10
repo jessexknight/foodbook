@@ -1,11 +1,11 @@
 body {
   background-color: #fff;
   font-family: 'Ubuntu', sans-serif;
-  margin: 50px auto;
+  margin: 0px auto;
   width: 930px;
 }
 div {
-  padding: 10px 0px;
+  padding: 0px;
   margin: 0px;
   vertical-align: top;
 }
@@ -20,11 +20,20 @@ div {
   padding: 20px;
   padding-left: 40px;
   background-color: #fff;
-  border-left: solid 1px #c66;
+  border-left: solid 3px #c66;
 }
 h1,h2,h3 {
   display: inline-block;
   margin-top: 0px;
+}
+h1:after {
+  content: '';
+  width: 640px;
+  margin-top: 20px;
+  left: -40px;
+  position: relative;
+  display: inline-block;
+  border-bottom: 3px solid #c66;
 }
 a {
   color: #c66;
@@ -46,17 +55,28 @@ a h1:hover, a h2:hover, a h3:hover {
 }
 .tip .tiptext {
   visibility: hidden;
+  z-index: 1;
+  position: absolute;
   white-space: nowrap;
-  background-color: #eff;
+}
+.tip:hover .tiptext {
+  visibility: visible;
+}
+#steps .tip .tiptext {
+  background-color: #dff;
   color: #399;
   padding: 0px;
-  position: absolute;
-  z-index: 1;
   bottom: 100%;
   left: 0%;
 }
-.tip:hover .tiptext {
-    visibility: visible;
+#navtags .tip .tiptext,
+#tags .tip .tiptext {
+  background-color: none;
+  width: 100px;
+  color: inherit;
+  padding-left: 3px;
+  bottom: -60%;
+  left: 0%;
 }
 input[type=number] {
   font-size: inherit;
@@ -90,13 +110,24 @@ input[type=number]::-webkit-inner-spin-button {
 table {
   border-collapse: collapse;
 }
+.section {
+  margin-top: 20px;
+}
+#overview {
+  display: inline-block;
+  width: 50%;
+}
 #recipe table {
   width: 100%;
 }
+tr {
+  background-color: #fff;
+  margin: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
 th, td {
   padding: 8px;
-  border-bottom: solid 1px #fcc;
-  border-top: solid 1px #fcc;
   vertical-align: top;
 }
 img {
@@ -106,7 +137,7 @@ img {
   position: relative;
 }
 .rowclick tr:hover {
-  color: #933;
+  color: #c66;
   cursor: pointer;
 }
 .rowclick tr:hover .tip {
@@ -117,10 +148,7 @@ img {
   color: #399;
 }
 .rowclick tr.selected {
-  color: #f99;
-}
-td:first-child {
-  padding-left: 0px;
+  color: #fcc;
 }
 #overview td:nth-child(1) {
   width: 100px;
@@ -128,9 +156,43 @@ td:first-child {
 #overview td:nth-child(2) {
   text-align: left;
 }
+#recipe td {
+  line-height: 120%;
+}
 #recipe .rowclick  td:nth-child(1) {
   text-align: right;
 }
+#steps td:nth-child(1) {
+  padding-left: 20px;
+}
 #ingredients td:nth-child(1) {
   width: 80px;
+}
+#navtags {
+  margin-top: 20px;
+}
+#tags {
+  display: inline-block;
+  float: right;
+  width: 45%;
+}
+#tags .tip {
+  float: right;
+}
+.icon {
+  margin: 0px 5px;
+  padding: 5px;
+}
+.icon.breakfast { background-color: #c90; }
+.icon.dessert   { background-color: #c3f; }
+.icon.fish      { background-color: #69c; }
+.icon.meat      { background-color: #c63; }
+.icon.veggie    { background-color: #0c6; }
+
+#tags .icon {
+  width: 32px;
+}
+#navtags .icon {
+  width: 20px;
+  margin: 3px;
 }
