@@ -5,8 +5,11 @@ $(document).ready(function(){
   function numfmt(num,precision){
     return (Math.round(precision*num)/precision).toString();
   };
-  function hoverover(str,match,hover){
-    return str;//.replace('???',' {'+match+'} ')
+  function tooltip(str,match,hover){
+    match = match.replace(/ *\([^)]*\) */,'');
+    var re = new RegExp('([^\\w])('+match+')([^\\w])','g')
+    var tool = '$1<span class="tip">$2<span class="tiptext">'+hover+'</span></span>$3';
+    return str.replace(re,tool);
   };
   function htmlobject(obj,str,props=null){
     if (props == null){
@@ -21,7 +24,7 @@ $(document).ready(function(){
   function tcell(str,props=null){
     return htmlobject('td',str,props);
   };
-  function scaleing(amount,ratio,precision=100){
+  function ingscale(amount,ratio,precision=100){
     split = amount.match('(.*?)\\s(\\S*)')
     if (split == null) {
       return numfmt(ratio*parseFloat(amount),  precision);
@@ -53,20 +56,25 @@ $(document).ready(function(){
       s['ingredients-cache'] = '';
       for (var ingredient in data['ingredients']){
         s['ingredients'] += trow(
-          tcell(scaleing(data['ingredients'][ingredient],1,100))+
+          tcell(ingscale(data['ingredients'][ingredient],1,100))+
           tcell(ingredient)
         );
         s['ingredients-cache'] += trow(
-          tcell(scaleing(data['ingredients'][ingredient],1,10000))+
+          tcell(ingscale(data['ingredients'][ingredient],1,10000))+
           tcell(ingredient)
         );
       };
       // instructions
       s['instructions'] = '';
-      for (var i in data['instructions']){
+      for (var index in data['instructions']){
+        instruction = data['instructions'][index]
+        for (var ingredient in data['ingredients']){
+          instruction = tooltip(instruction,ingredient,data['ingredients'][ingredient]);
+          // console.log(instruction)
+        }
         s['instructions'] += trow(
-          tcell(parseInt(i)+1,'valign="top"')+
-          tcell(data['instructions'][i])
+          tcell(parseInt(index)+1,'valign="top"')+
+          tcell(instruction)
         );
       };
       // add the recipe content
@@ -81,7 +89,7 @@ $(document).ready(function(){
       $('#serves').change(function(e){
         var ratio = parseFloat($(this)[0].value) / parseFloat(serves);
         $('#ingredients-cache tr td:first-child').each(function(i){
-          $('#ingredients tr td:first-child')[i].innerHTML = scaleing(this.innerHTML,ratio);
+          $('#ingredients tr td:first-child')[i].innerHTML = ingscale(this.innerHTML,ratio);
         });
       });
     });

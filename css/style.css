@@ -2,7 +2,7 @@ body {
   background-color: #fff;
   font-family: 'Ubuntu', sans-serif;
   margin: 50px auto;
-  width: 830px;
+  width: 930px;
 }
 div {
   padding: 10px 0px;
@@ -16,11 +16,11 @@ div {
   background-color: #fff;
 }
 #recipe {
-  width: 500px;
+  width: 600px;
   padding: 20px;
   padding-left: 40px;
   background-color: #fff;
-  border-left: solid 1px #ddd;
+  border-left: solid 1px #c66;
 }
 h1,h2,h3 {
   display: inline-block;
@@ -40,6 +40,23 @@ a h1, a h2, a h3 {
 a h1:hover, a h2:hover, a h3:hover {
   color: #933;
   cursor: pointer;
+}
+.tip {
+  position: relative;
+}
+.tip .tiptext {
+  visibility: hidden;
+  white-space: nowrap;
+  background-color: #eff;
+  color: #399;
+  padding: 0px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 0%;
+}
+.tip:hover .tiptext {
+    visibility: visible;
 }
 input[type=number] {
   font-size: inherit;
@@ -74,16 +91,16 @@ table {
   border-collapse: collapse;
 }
 #recipe table {
-  width: 500px;
+  width: 100%;
 }
 th, td {
   padding: 8px;
-  border-bottom: solid 1px #ddd;
-  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #fcc;
+  border-top: solid 1px #fcc;
   vertical-align: top;
 }
 img {
-  width: 500px;
+  width: 100%;
 }
 .rowclick {
   position: relative;
@@ -91,6 +108,13 @@ img {
 .rowclick tr:hover {
   color: #933;
   cursor: pointer;
+}
+.rowclick tr:hover .tip {
+  background-color: #fee;
+}
+.rowclick tr .tip:hover {
+  background-color: #eff;
+  color: #399;
 }
 .rowclick tr.selected {
   color: #f99;
