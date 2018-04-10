@@ -1,7 +1,8 @@
 body {
+  background-color: #fff;
   font-family: 'Ubuntu', sans-serif;
   margin: 50px auto;
-  width: 750px;
+  width: 830px;
 }
 div {
   padding: 10px 0px;
@@ -10,10 +11,16 @@ div {
 }
 #navbar {
   width: 200px;
-  padding-right: 30px;
+  padding: 20px;
+  padding-right: 40px;
+  background-color: #fff;
 }
 #recipe {
   width: 500px;
+  padding: 20px;
+  padding-left: 40px;
+  background-color: #fff;
+  border-left: solid 1px #ddd;
 }
 h1,h2,h3 {
   display: inline-block;
