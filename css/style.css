@@ -1,58 +1,38 @@
+/*------------------------------------------------------------------------------
+  main
+------------------------------------------------------------------------------*/
 body {
-  background-color: #fff;
   font-family: 'Ubuntu', sans-serif;
-  margin: 0px auto;
-  width: 930px;
 }
-div {
-  padding: 0px;
-  margin: 0px;
-  vertical-align: top;
-}
-#navbar {
-  width: 200px;
-  padding: 20px;
-  padding-right: 40px;
+body.light {
   background-color: #fff;
+}
+body.dark {
+  background-color: #333;
+}
+/*------------------------------------------------------------------------------
+  layout
+------------------------------------------------------------------------------*/
+.row {
+  margin: 0px;
+}
+.section {
+  overflow: auto;
+  padding: 15px;
+  display: block;
 }
 #recipe {
-  width: 600px;
-  padding: 20px;
-  padding-left: 40px;
-  background-color: #fff;
-  border-left: solid 3px #c66;
+  border-left: 5px solid #eee;
 }
-h1,h2,h3 {
-  display: inline-block;
-  margin-top: 0px;
+#recipe .section {
+  border-top: 15px solid #eee;
 }
-h1:after {
-  content: '';
-  width: 640px;
-  margin-top: 20px;
-  left: -40px;
-  position: relative;
-  display: inline-block;
-  border-bottom: 3px solid #c66;
+h1 {
+  margin: 0px;
 }
-a {
-  color: #c66;
-  text-decoration: none;
-}
-a:hover {
-  color: #933;
-  cursor: pointer;
-}
-a h1, a h2, a h3 {
-  color: #000;
-}
-a h1:hover, a h2:hover, a h3:hover {
-  color: #933;
-  cursor: pointer;
-}
-.tip {
-  position: relative;
-}
+/*------------------------------------------------------------------------------
+  hover tips
+------------------------------------------------------------------------------*/
 .tip .tiptext {
   visibility: hidden;
   z-index: 1;
@@ -62,31 +42,31 @@ a h1:hover, a h2:hover, a h3:hover {
 .tip:hover .tiptext {
   visibility: visible;
 }
-#steps .tip .tiptext {
-  background-color: #dff;
-  color: #399;
-  padding: 0px;
-  bottom: 100%;
-  left: 0%;
-}
-#navtags .tip .tiptext,
-#tags .tip .tiptext {
-  background-color: none;
-  width: 100px;
-  color: inherit;
-  padding-left: 3px;
-  bottom: -60%;
-  left: 0%;
-}
+/*------------------------------------------------------------------------------
+  serving size
+------------------------------------------------------------------------------*/
 input[type=number] {
-  font-size: inherit;
+  font: inherit;
   border: none;
-  padding: 1px;
   width: 40px;
 }
 input[type=number]::-webkit-inner-spin-button {
   opacity: 1;
 }
+/*------------------------------------------------------------------------------
+  links
+------------------------------------------------------------------------------*/
+a {
+  color: #c66;
+  text-decoration: none;
+}
+a:hover {
+  color: #933;
+  cursor: pointer;
+}
+/*------------------------------------------------------------------------------
+  collapse sections
+------------------------------------------------------------------------------*/
 .hidden {
   display: none;
 }
@@ -100,55 +80,43 @@ input[type=number]::-webkit-inner-spin-button {
   width: 0px;
 }
 .collapse-button:before {
-  left: -25px;
+  left: 0px;
   content: '\f107';
 }
 .collapse-button.closed:before {
-  left: -20px;
+  left: 5px;
   content: '\f105';
 }
+a h2 {
+  margin-left: 30px;
+  display: inline-block;
+  margin-top: 0px;
+  color: #000;
+}
+a h1:hover, a h2:hover, a h3:hover {
+  color: #933;
+  cursor: pointer;
+}
+/*------------------------------------------------------------------------------
+  tables
+------------------------------------------------------------------------------*/
 table {
+  margin: 15px 0px;
+  width: 100%;
   border-collapse: collapse;
 }
-.section {
-  margin-top: 20px;
-}
-#overview {
-  display: inline-block;
-  width: 50%;
-}
-#recipe table {
-  width: 100%;
-}
 tr {
-  background-color: #fff;
   margin: 10px;
-  border-top: 1px solid #eee;
+  border-top:    1px solid #eee;
   border-bottom: 1px solid #eee;
 }
 th, td {
-  padding: 8px;
+  padding: 5px;
   vertical-align: top;
 }
-img {
-  width: 100%;
-}
-.rowclick {
-  position: relative;
-}
-.rowclick tr:hover {
-  color: #c66;
-  cursor: pointer;
-}
-.rowclick tr:hover .tip {
-  background-color: #fee;
-}
-.rowclick tr .tip:hover {
-  background-color: #eff;
-  color: #399;
-}
-.rowclick tr.selected {
-  color: #fcc;
+/* arrangement */
+#overview {
+  margin-right: 20px;
 }
 #overview td:nth-child(1) {
   width: 100px;
@@ -157,9 +125,9 @@ img {
   text-align: left;
 }
 #recipe td {
-  line-height: 120%;
+  line-height: 140%;
 }
-#recipe .rowclick  td:nth-child(1) {
+#recipe td:nth-child(1) {
   text-align: right;
 }
 #steps td:nth-child(1) {
@@ -168,31 +136,55 @@ img {
 #ingredients td:nth-child(1) {
   width: 80px;
 }
-#navtags {
-  margin-top: 20px;
+/* click-able rows */
+.rowclick tr:hover {
+  color: #c66;
+  cursor: pointer;
 }
-#tags {
+.rowclick tr.selected {
+  color: #fcc;
+}
+/* steps hover */
+#steps tr .tip {
+  padding: 2px;
+}
+#steps tr:hover .tip {
+  position: relative;
+  background-color: #fee;
+}
+#steps tr .tip:hover {
+  background-color: #dff;
+  color: #399;
+}
+#steps tr .tip .tiptext {
+  background-color: #dff;
+  color: #399;
+  padding: 2px;
+  bottom: 100%;
+  left: 0%;
+}
+/*------------------------------------------------------------------------------
+  tags (icons)
+------------------------------------------------------------------------------*/
+.icon-div {
+  width: 14%;
+  padding: 2%;
+  margin: 1%;
   display: inline-block;
-  float: right;
-  width: 45%;
-}
-#tags .tip {
-  float: right;
+  text-align: center;
 }
 .icon {
-  margin: 0px 5px;
-  padding: 5px;
+  width: 100%;
+  max-width: 48px;
 }
-.icon.breakfast { background-color: #c90; }
-.icon.dessert   { background-color: #c3f; }
-.icon.fish      { background-color: #69c; }
-.icon.meat      { background-color: #c63; }
-.icon.veggie    { background-color: #0c6; }
-
-#tags .icon {
-  width: 32px;
+.icon-div.breakfast { background-color: #c90; }
+.icon-div.dessert   { background-color: #c3f; }
+.icon-div.fish      { background-color: #69c; }
+.icon-div.meat      { background-color: #c63; }
+.icon-div.veggie    { background-color: #0c6; }
+#navtags {
+  padding-bottom: 20px;
 }
-#navtags .icon {
-  width: 20px;
-  margin: 3px;
+#tags .icon-div {
+  float: right;
 }

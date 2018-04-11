@@ -1,4 +1,9 @@
 $(document).ready(function(){
+  function rowclicks(){
+    $('#recipe .rowclick tr').click(function(e){
+      $(this).toggleClass('selected');
+    });
+  };
   function recipefile(id){
     return 'recipes/'+id+'.json';
   }
@@ -35,16 +40,16 @@ $(document).ready(function(){
   function genicons(tags){
     str = ''
     for (var t in tags){
-      str += '<span class="tip">'+
-             '<img class="icon '+tags[t]+'" src="icon/'+tags[t]+'.png">'+
-             '<span class="tiptext">'+tags[t].toUpperCase()+'</span></img></span>';
+      str += '<div class="icon-div '+tags[t]+'">'+
+             '<img class="icon" src="icon/'+tags[t]+'.png"/>'+
+             '</div>';
     };
     return str;
   };
   function genimgs(imgs){
     str = ''
     for (var i in imgs){
-      str += '<img class="image" src="img/'+imgs[i]+'""/>';
+      str += '<img width="100%" src="img/'+imgs[i]+'""/>';
     };
     return str;
   };
@@ -74,7 +79,10 @@ $(document).ready(function(){
   };
   function loadrecipe(id){
     $.getJSON(recipefile(id),function(data){
-      // store static data
+      history.pushState(null,null,'#'+id);
+      $('.nav-item').removeClass('selected');
+      $('#'+id).addClass('selected');
+      // servings
       serves = parseInt(data['serves']);
       $('#serves')[0].value = serves;
       // overview
@@ -93,14 +101,13 @@ $(document).ready(function(){
       // steps
       $('#steps').html(genstable(data['steps'],data['ingredients'],1,100));
       // listener: click-able table rows
-      $('#recipe .rowclick tr').click(function(e){
-        $(this).toggleClass('selected');
-      });
+      rowclicks();
       // listeners: change serving size
       $('#serves').change(function(e){
         var scale = parseFloat($(this)[0].value) / parseFloat(serves);
         $('#ingredients').html(genitable(              data['ingredients'],scale,100));
         $('#steps')      .html(genstable(data['steps'],data['ingredients'],scale,100));
+        rowclicks();
       });
     });
   };
@@ -108,16 +115,13 @@ $(document).ready(function(){
   $.getJSON('list.json',function(list){
     for (var i in list){(function(i){
       $.getJSON(recipefile(list[i]),function(data){
-        $('#recipe-table').append(trow(tcell(data['title'],'class="nav-item" id="'+list[i]+'"')));
+        $('#recipe-table').append(trow(tcell(data['title']),'class="nav-item" id="'+list[i]+'"'));
       });
     })(i)};
     $('#navtags').html(genicons(['breakfast','veggie','fish','meat','dessert']))
   });
   // listeners: navbar clicks (change recipe)
   $(document).on('click','.nav-item',function(e){
-    history.pushState(null,null,'#'+this.id);
-    $('.nav-item').removeClass('selected');
-    $(this).addClass('selected');
     loadrecipe(this.id);
   });
   // listeners: collapse sections
@@ -125,4 +129,5 @@ $(document).ready(function(){
     $(this).toggleClass('closed');
     $(this).next('.collapse-content').toggleClass('hidden');
   });
+  loadrecipe('oatmeal-pancakes');
 });
