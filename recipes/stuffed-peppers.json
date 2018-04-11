@@ -1,0 +1,42 @@
+{
+  "title": "Cous-Cous Stuffed Peppers",
+  "time": {
+    "prep": "15",
+    "cook": "20"
+  },
+  "serves": "6",
+  "ingredients": {
+    "oil (cooking)": "1 T",
+    "peppers (sweet)": "6",
+    "cous-cous": "0.75 C",
+    "broth (veggie)": "1 C",
+    "salt": "1 t",
+    "lemon juice": "2 T",
+    "garlic (minced)": "1 T",
+    "curry powder": "1 t",
+    "cayenne": "0.25 t",
+    "chickpeas (drained)": "1 C",
+    "celery (thin sliced)": "2",
+    "green onions (thin sliced)": "3",
+    "dried cranberries": "1 C",
+    "walnuts (chopped)": "1 C",
+    "feta cheese (crumbled)": "1 C",
+    "eggs (beaten)": "1"
+  },
+  "steps": [
+    "Pre-heat oven to 375 F.",
+    "In a small saucepan, combine broth, salt, oil, lemon juice, curry powder, cayenne, and garlic. Bring to a boil over high heat, stir in cous-cous. Remove from heat, cover, and let stand 15 min.",
+    "In a small skillet over medium heat, toast the walnuts.",
+    "In a large bowl, combine chickpeas, celery, green onions, dried cranberries, and feta cheese.",
+    "Mix in toasted walnuts, cooked cous-cous and eggs.",
+    "Cut peppers in half, place on a baking sheet, and stuff with mixture.",
+    "Bake stuffed peppers for 20 minutes."
+  ],
+  "tags": [
+    "veggie"
+  ],
+  "images": [
+    "stuffed-peppers-1.jpg"
+  ],
+  "source": "https://www.thestar.com/life/food_wine/2014/05/15/fresh_bites_sweet_long_peppers_perfect_for_snacking_grilling_and_stuffing.html"
+}
