@@ -1,14 +1,32 @@
 /*------------------------------------------------------------------------------
-  main
+  dark / light mode
 ------------------------------------------------------------------------------*/
-body {
-  font-family: 'Ubuntu', sans-serif;
-}
 body.light {
-  background-color: #fff;
+  --c-background: #fff;
+  --c-borders:    #eee;
+  --c-text:       #000;
+  --c-link:       #c66;
+  --c-hover:      #933;
+  --c-done:       #f99;
+  --c-hilight:    #fee;
+  --c-hover-light:#dff;
+  --c-hover-text: #399;
 }
 body.dark {
-  background-color: #333;
+  --c-background: #333;
+  --c-borders:    #444;
+  --c-text:       #ccc;
+  --c-link:       #c66;
+  --c-hover:      #f99;
+  --c-done:       #933;
+  --c-hilight:    #633;
+  --c-hover-light:#033;
+  --c-hover-text: #6cc;
+}
+body {
+  font-family: 'Ubuntu', sans-serif;
+  color: var(--c-text);
+  background-color: var(--c-background);
 }
 /*------------------------------------------------------------------------------
   layout
@@ -22,13 +40,25 @@ body.dark {
   display: block;
 }
 #recipe {
-  border-left: 5px solid #eee;
+  border-left: 5px solid var(--c-borders);
 }
 #recipe .section {
-  border-top: 15px solid #eee;
+  border-top: 15px solid var(--c-borders);
 }
 h1 {
   margin: 0px;
+}
+.title {
+  background-color: var(--c-borders);
+}
+#navtags {
+  padding-bottom: 20px;
+}
+#dark-light {
+  cursor: pointer;
+  margin: 40px 0px;
+  padding: 10px;
+  background-color: var(--c-borders);
 }
 /*------------------------------------------------------------------------------
   hover tips
@@ -47,21 +77,23 @@ h1 {
 ------------------------------------------------------------------------------*/
 input[type=number] {
   font: inherit;
+  color: inherit;
+  background: inherit;
   border: none;
   width: 40px;
 }
 input[type=number]::-webkit-inner-spin-button {
-  opacity: 1;
+  opacity: 0.6;
 }
 /*------------------------------------------------------------------------------
   links
 ------------------------------------------------------------------------------*/
 a {
-  color: #c66;
+  color: var(--c-link);
   text-decoration: none;
 }
 a:hover {
-  color: #933;
+  color: var(--c-hover);
   cursor: pointer;
 }
 /*------------------------------------------------------------------------------
@@ -71,13 +103,13 @@ a:hover {
   display: none;
 }
 .collapse-button:before {
-  color: #000;
   font-size: 25px;
   font-family: FontAwesome;
   position: relative;
   vertical-align: top;
   display: inline-block;
   width: 0px;
+  color: var(--c-text);
 }
 .collapse-button:before {
   left: 0px;
@@ -91,11 +123,14 @@ a h2 {
   margin-left: 30px;
   display: inline-block;
   margin-top: 0px;
-  color: #000;
+  color: var(--c-text);
 }
 a h1:hover, a h2:hover, a h3:hover {
-  color: #933;
+  color: var(--c-hover);
   cursor: pointer;
+}
+.collapse-button:hover:before {
+  color: var(--c-hover);
 }
 /*------------------------------------------------------------------------------
   tables
@@ -107,8 +142,8 @@ table {
 }
 tr {
   margin: 10px;
-  border-top:    1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top:    1px solid var(--c-borders);
+  border-bottom: 1px solid var(--c-borders);
 }
 th, td {
   padding: 5px;
@@ -138,11 +173,11 @@ th, td {
 }
 /* click-able rows */
 .rowclick tr:hover {
-  color: #c66;
+  color: var(--c-hover);
   cursor: pointer;
 }
 #recipe .rowclick tr.selected {
-  color: #fcc;
+  color: var(--c-done);
 }
 /* steps hover */
 #steps tr .tip {
@@ -150,15 +185,14 @@ th, td {
 }
 #steps tr:hover .tip {
   position: relative;
-  background-color: #fee;
+  background-color: var(--c-hilight);
 }
-#steps tr .tip:hover {
-  background-color: #dff;
-  color: #399;
+#steps tr .tip:hover,
+#steps tr .tip .tiptext {
+  background-color: var(--c-hover-light);
+  color: var(--c-hover-text);
 }
 #steps tr .tip .tiptext {
-  background-color: #dff;
-  color: #399;
   padding: 2px;
   bottom: 100%;
   left: 0%;
@@ -172,27 +206,25 @@ th, td {
   margin: 1%;
   display: inline-block;
   text-align: center;
+  opacity: 0.8;
 }
 .icon {
   width: 100%;
-  max-width: 48px;
+  max-width: 36px;
 }
 .icon-div.breakfast { background-color: #c90; }
 .icon-div.dessert   { background-color: #c3f; }
 .icon-div.fish      { background-color: #69c; }
 .icon-div.meat      { background-color: #c63; }
 .icon-div.veggie    { background-color: #0c6; }
-#navtags {
-  padding-bottom: 20px;
-}
 #navtags .icon-div {
-  opacity: 0.25;
+  opacity: 0.3;
 }
 #navtags .icon-div:hover {
   cursor: pointer;
 }
 #navtags .icon-div.selected {
-  opacity: 1.0;
+  opacity: 0.8;
 }
 #tags .icon-div {
   float: right;

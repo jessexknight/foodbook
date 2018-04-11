@@ -143,5 +143,15 @@ $(document).ready(function(){
     $(this).toggleClass('closed');
     $(this).next('.collapse-content').toggleClass('hidden');
   });
+  // listener: dark / light mode
+  $('#dark-light').click(function(e){
+    $('body').toggleClass('dark');
+    $('body').toggleClass('light');
+    if ($('body').hasClass('dark')){
+      $('#dark-light').html('Light Mode')
+    } else if ($('body').hasClass('light')){
+      $('#dark-light').html('Dark Mode')
+    }
+  })
   loadrecipe('oatmeal-pancakes');
 });
