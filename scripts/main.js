@@ -110,7 +110,8 @@ $(document).ready(function(){
       // images
       $('#images').html(genimgs(data['images']));
       // link
-      $('#link').html('<a href="'+data['link']+'" target="_blank">source</a>');
+      console.log(data['source']);
+      $('#link').html('<a href="'+data['source']+'" target="_blank">source</a>');
       // ingredients
       $('#ingredients').html(genitable(data['ingredients'],1,100));
       // steps
