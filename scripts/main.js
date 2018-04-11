@@ -40,7 +40,7 @@ $(document).ready(function(){
   function genicons(tags){
     str = ''
     for (var t in tags){
-      str += '<div class="icon-div '+tags[t]+'">'+
+      str += '<div class="nav-filter selected icon-div '+tags[t]+'" id="'+tags[t]+'">'+
              '<img class="icon" src="icon/'+tags[t]+'.png"/>'+
              '</div>';
     };
@@ -77,6 +77,21 @@ $(document).ready(function(){
     };
     return str;
   };
+  function genfilternav(){
+    return $.getJSON('list.json',function(list){
+      $('#navtable').html('');
+      for (var i in list){(function(i){
+        $.getJSON(recipefile(list[i]),function(data){
+          var tagfilters = Array.from($('#navtags .nav-filter.selected'),function(o){
+            return o.id;
+          });
+          if (data['tags'].map(tag => tagfilters.indexOf(tag)).some(i => i>-1)) {
+            $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="'+list[i]+'"'));
+          };
+        });
+      })(i)};
+    });
+  };
   function loadrecipe(id){
     $.getJSON(recipefile(id),function(data){
       history.pushState(null,null,'#'+id);
@@ -112,17 +127,16 @@ $(document).ready(function(){
     });
   };
   // build the navbar
-  $.getJSON('list.json',function(list){
-    for (var i in list){(function(i){
-      $.getJSON(recipefile(list[i]),function(data){
-        $('#recipe-table').append(trow(tcell(data['title']),'class="nav-item" id="'+list[i]+'"'));
-      });
-    })(i)};
-    $('#navtags').html(genicons(['breakfast','veggie','fish','meat','dessert']))
-  });
-  // listeners: navbar clicks (change recipe)
+  $('#navtags').html(genicons(['breakfast','veggie','fish','meat','dessert']));
+  genfilternav();
+  // listeners: nav-item click -> change recipe
   $(document).on('click','.nav-item',function(e){
     loadrecipe(this.id);
+  });
+  // listeners: nav-filter click -> filter recipes
+  $(document).on('click','.nav-filter',function(e){
+    $(this).toggleClass('selected');
+    genfilternav();
   });
   // listeners: collapse sections
   $('.collapse-button').click(function(e){

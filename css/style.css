@@ -141,7 +141,7 @@ th, td {
   color: #c66;
   cursor: pointer;
 }
-.rowclick tr.selected {
+#recipe .rowclick tr.selected {
   color: #fcc;
 }
 /* steps hover */
@@ -184,6 +184,15 @@ th, td {
 .icon-div.veggie    { background-color: #0c6; }
 #navtags {
   padding-bottom: 20px;
+}
+#navtags .icon-div {
+  opacity: 0.25;
+}
+#navtags .icon-div:hover {
+  cursor: pointer;
+}
+#navtags .icon-div.selected {
+  opacity: 1.0;
 }
 #tags .icon-div {
   float: right;
