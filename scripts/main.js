@@ -149,9 +149,9 @@ $(document).ready(function(){
     $('body').toggleClass('dark');
     $('body').toggleClass('light');
     if ($('body').hasClass('dark')){
-      $('#dark-light').html('Light Mode')
+      $('#dark-light').html('<img src="icon/light.png" class="icon"/>');
     } else if ($('body').hasClass('light')){
-      $('#dark-light').html('Dark Mode')
+      $('#dark-light').html('<img src="icon/dark.png" class="icon"/>')
     }
   })
   loadrecipe('oatmeal-pancakes');

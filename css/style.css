@@ -54,10 +54,9 @@ h1 {
 #navtags {
   padding-bottom: 20px;
 }
-#dark-light {
+#dark-light,
+#git-link {
   cursor: pointer;
-  margin: 40px 0px;
-  padding: 10px;
   background-color: var(--c-borders);
 }
 /*------------------------------------------------------------------------------
@@ -206,7 +205,6 @@ th, td {
   margin: 1%;
   display: inline-block;
   text-align: center;
-  opacity: 0.8;
 }
 .icon {
   width: 100%;
