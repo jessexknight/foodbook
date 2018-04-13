@@ -86,15 +86,15 @@ $(document).ready(function(){
             return o.id;
           });
           if (data['tags'].map(tag => tagfilters.indexOf(tag)).some(i => i>-1)) {
-            $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="'+list[i]+'"'));
+            $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="@'+list[i]+'"'));
           };
         });
       })(i)};
     });
   };
-  function loadrecipe(id){
+  function loadrecipe(){
+    var id = window.location.hash.substr(1)
     $.getJSON(recipefile(id),function(data){
-      history.pushState(null,null,'#'+id);
       $('.nav-item').removeClass('selected');
       $('#'+id).addClass('selected');
       // servings
@@ -110,7 +110,6 @@ $(document).ready(function(){
       // images
       $('#images').html(genimgs(data['images']));
       // link
-      console.log(data['source']);
       $('#link').html('<a href="'+data['source']+'" target="_blank">source</a>');
       // ingredients
       $('#ingredients').html(genitable(data['ingredients'],1,100));
@@ -130,16 +129,20 @@ $(document).ready(function(){
   // build the navbar
   $('#navtags').html(genicons(['breakfast','veggie','fish','meat','dessert']));
   genfilternav();
-  // listeners: nav-item click -> change recipe
-  $(document).on('click','.nav-item',function(e){
-    loadrecipe(this.id);
+  // listener: change hash -> load recipe
+  $(window).on('hashchange',function(e){
+    loadrecipe();
   });
-  // listeners: nav-filter click -> filter recipes
+  // listener: nav-item click -> change hash
+  $(document).on('click','.nav-item',function(e){
+    window.location.hash = this.id.substr(1);
+  });
+  // listener: nav-filter click -> filter nav-items
   $(document).on('click','.nav-filter',function(e){
     $(this).toggleClass('selected');
     genfilternav();
   });
-  // listeners: collapse sections
+  // listener: collapse sections
   $('.collapse-button').click(function(e){
     $(this).toggleClass('closed');
     $(this).next('.collapse-content').toggleClass('hidden');
@@ -149,10 +152,11 @@ $(document).ready(function(){
     $('body').toggleClass('dark');
     $('body').toggleClass('light');
     if ($('body').hasClass('dark')){
-      $('#dark-light').html('<img src="icon/light.png" class="icon"/>');
+      $('#dark-light-img').attr('src','icon/light.png')
     } else if ($('body').hasClass('light')){
-      $('#dark-light').html('<img src="icon/dark.png" class="icon"/>')
-    }
-  })
-  loadrecipe('oatmeal-pancakes');
+      $('#dark-light-img').attr('src','icon/dark.png');
+    };
+  });
+  // load any initial recipe (silent js error if not found)
+  loadrecipe();
 });

@@ -175,7 +175,7 @@ th, td {
   color: var(--c-hover);
   cursor: pointer;
 }
-#recipe .rowclick tr.selected {
+.rowclick tr.selected {
   color: var(--c-done);
 }
 /* steps hover */
