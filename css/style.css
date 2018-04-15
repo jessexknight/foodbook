@@ -210,10 +210,11 @@ th, td {
   width: 100%;
   max-width: 36px;
 }
-.icon-div.breakfast { background-color: #c90; }
+.icon-div.breakfast { background-color: #c93; }
+.icon-div.snack     { background-color: #fc0; }
 .icon-div.dessert   { background-color: #c3f; }
 .icon-div.fish      { background-color: #69c; }
-.icon-div.meat      { background-color: #c63; }
+.icon-div.meat      { background-color: #c30; }
 .icon-div.veggie    { background-color: #0c6; }
 #navtags .icon-div {
   opacity: 0.3;

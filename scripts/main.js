@@ -127,7 +127,7 @@ $(document).ready(function(){
     });
   };
   // build the navbar
-  $('#navtags').html(genicons(['breakfast','veggie','fish','meat','dessert']));
+  $('#navtags').html(genicons(['breakfast','snack','veggie','fish','meat'])); //'dessert'
   genfilternav();
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
