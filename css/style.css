@@ -58,18 +58,20 @@ h1 {
 #git-link {
   cursor: pointer;
   background-color: var(--c-borders);
+  color: #999;
 }
 /*------------------------------------------------------------------------------
   hover tips
 ------------------------------------------------------------------------------*/
 .tip .tiptext {
-  visibility: hidden;
+  display: none;
   z-index: 1;
   position: absolute;
   white-space: nowrap;
 }
 .tip:hover .tiptext {
-  visibility: visible;
+  display: block;
+  background-color: inherit;
 }
 /*------------------------------------------------------------------------------
   serving size
@@ -197,7 +199,7 @@ th, td {
   left: 0%;
 }
 /*------------------------------------------------------------------------------
-  tags (icons)
+  tags & icons
 ------------------------------------------------------------------------------*/
 .icon-div {
   width: 14%;
@@ -225,6 +227,18 @@ th, td {
 #navtags .icon-div.selected {
   opacity: 0.8;
 }
+#tags, #extras {
+  margin-bottom: 40px;
+}
 #tags .icon-div {
   float: right;
+}
+.icon-div.tip:hover .tiptext {
+  color: #fff;
+  margin-left: -2%;
+  margin-top: 3%;
+  padding: 5px;
+}
+#extras .icon-div.tip:hover .tiptext {
+  color: #999;
 }

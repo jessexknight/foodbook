@@ -40,8 +40,9 @@ $(document).ready(function(){
   function genicons(tags){
     str = ''
     for (var t in tags){
-      str += '<div class="nav-filter selected icon-div '+tags[t]+'" id="'+tags[t]+'">'+
+      str += '<div class="nav-filter selected icon-div '+tags[t]+' tip" id="'+tags[t]+'">'+
              '<img class="icon" src="icon/'+tags[t]+'.png"/>'+
+             '<span class="tiptext">'+tags[t]+'</span>'+
              '</div>';
     };
     return str;
@@ -152,9 +153,11 @@ $(document).ready(function(){
     $('body').toggleClass('dark');
     $('body').toggleClass('light');
     if ($('body').hasClass('dark')){
-      $('#dark-light-img').attr('src','icon/light.png')
+      $('#dark-light-img').attr('src','icon/light.png');
+      $('#dark-light-tip').html('light mode');
     } else if ($('body').hasClass('light')){
       $('#dark-light-img').attr('src','icon/dark.png');
+      $('#dark-light-tip').html('dark mode');
     };
   });
   // load any initial recipe (silent js error if not found)
