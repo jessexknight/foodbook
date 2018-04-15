@@ -1,0 +1,40 @@
+{
+  "title": "One Pot Greek Chicken and Rice",
+  "time": {
+    "prep": "10",
+    "cook": "50"
+  },
+  "serves": "5",
+  "ingredients": {
+    "chicken (breasts / thighs)": "800 g",
+    "lemon zest": "2",
+    "lemon juice": "2 T",
+    "garlic (minced cloves)": "4",
+    "oregano": "2 T",
+    "salt": "1 t",
+    "oil (olive)": "0.5 T",
+    "onion (diced)": "1",
+    "rice (uncooked)": "1 C",
+    "broth (chicken / veggie)": "1.5 C",
+    "water": "0.75 C",
+    "pepper": "0.5 t"
+  },
+  "steps": [
+    "Combine chicken and marinade: lemon zest, lemon juice, garlic, 1 T oregano, 0.5 t salt. Set aside for 20 minutes.",
+    "Preheat oven to 350 F.",
+    "In a large iron skillet, heat oil over medium-high heat.",
+    "Remove chicken from marinade. Set marinade aside.",
+    "Brown the chicken in the skillet, both sides. Set aside.",
+    "Sauté onion in the skillet over medium heat, until translucent.",
+    "In the skillet, add the marinade, rice, broth, water, 1 T oregano, 0.5 t salt, and pepper.",
+    "Bring the mixture to a simmer for 30 seconds.",
+    "Add chicken, cover, and bake for 35 minutes. Uncover, and bake 10 minutes more."
+  ],
+  "tags": [
+    "meat"
+  ],
+  "images": [
+    "greek-chicken-1.jpg"
+  ],
+  "source": "https://www.recipetineats.com/one-pot-greek-chicken-lemon-rice/"
+}
