@@ -1,0 +1,35 @@
+{
+  "title": "Spicy Peanut Thai Stir Fry",
+  "time": {
+    "prep": "10",
+    "cook": "15"
+  },
+  "serves": "4",
+  "ingredients": {
+    "rice (cooked)": "4 C",
+    "oil (cooking)": "1 T",
+    "garlic (minced)": "0.75 T",
+    "onions (white, 1 inch chunks)": "1",
+    "broccoli (chopped large)": "2",
+    "red peppers (1 inch chunks)": "2",
+    "peanuts (roasted, unsalted)": "0.75 C",
+    "sweet Thai chili sauce": "0.25 C",
+    "peanut butter (chunky)": "0.5 C",
+    "soy sauce": "1 T"
+  },
+  "steps": [
+    "Start making the rice.",
+    "Heat the oil in a large wok over medium heat.",
+    "Add the garlic and onions, and sauté for about 2 minutes.",
+    "Add the broccoli, and continue about 8 minutes more, until onions are translucent.",
+    "Add the red peppers and peanuts, and continue about 5 minutes more.",
+    "Mix together the sauce parts: sweet Thai chili sauce, peanut butter, and soy sauce. Pour over wok and mix.",
+    "Serve stir-fry over rice."
+  ],
+  "tags": [
+    "veggie"
+  ],
+  "images": [
+  ],
+  "source": "#"
+}
