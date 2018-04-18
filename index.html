@@ -11,58 +11,78 @@
 <body class='light'>
   <div class='container'>
     <div class='row'>
-      <div id='navbar' class='col-xs-12 col-sm-4 col-md-3'>
-        <div class='section'>
-          <div id='navtags'></div>
-          <div>
-            <table class='rowclick' id='navtable'></table>
-          </div>
-          <div id='extras'>
-            <div id='dark-light' class='icon-div tip'>
-              <img id='dark-light-img' src='icon/dark.png' class='icon'/>
-              <span id='dark-light-tip' class='tiptext'>dark mode</span>
+      <div class='col-xs-12 col-sm-4 col-md-3'>
+        <div id='navbar'>
+          <div class='section'>
+            <div id='navtags'></div>
+            <div>
+              <table class='rowclick' id='navtable'></table>
             </div>
-            <div id='git-link' class='icon-div tip'>
-              <a href="https://github.com/jessexknight/recipes" target="_blank">
-                <img src='icon/git.png' class='icon'/>
-              </a>
-              <span class='tiptext'>source code</span>
+            <div id='extras'>
+              <div id='home-link' class='icon-div tip'>
+                <img src='icon/home.png' class='icon'/>
+                <span class='tiptext'>home</span>
+              </div>
+              <div id='dark-light' class='icon-div tip'>
+                <img id='dark-light-img' src='icon/dark.png' class='icon'/>
+                <span id='dark-light-tip' class='tiptext'>dark mode</span>
+              </div>
+              <div id='git-link' class='icon-div tip'>
+                <a href="https://github.com/jessexknight/recipes" target="_blank">
+                  <img src='icon/git.png' class='icon'/>
+                </a>
+                <span class='tiptext'>source code</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class='col-xs-12 col-sm-8 col-md-9'>
-        <div id='recipe'>
-          <div class='section title'>
-            <h1 id='title'></h1>
-          </div>
-          <div class='section'>
-            <div class='row'>
-              <div class='col-xs-12 col-sm-6 col-md-4'>
-                <table id='overview'>
-                  <tr><td>Prep Time:</td><td id='prep-time'></td></tr>
-                  <tr><td>Cook Time:</td><td id='cook-time'></td></tr>
-                  <tr><td>Serves:   </td><td><input type='number' id='serves'></td></tr>
-                </table>
-              </div>
-             <div class='col-xs-0  col-sm-0 col-md-4'></div>
-             <div class='col-xs-12 col-sm-6 col-md-4' id='tags'></div>
+        <div id='main'>
+          <div id='home'>
+            <div class='section title'>
+              <h1>Food Book</h1>
+            </div>
+            <div class='section'>
+              <br><br>A minimalist cook book.
+              <br><br>No "story behind the recipe".
+              <br><br>No gratuitous pictures of children / mimosas.
+              <br><br>No ads, pop-ups, newsletter signup requests.
+              <br><br>Just food. In the mouth.
             </div>
           </div>
-          <div class='section'>
-            <a class='collapse-button closed'><h2>Images</h2></a>
-            <div class='collapse-content hidden' id='images'></div>
+          <div id='recipe' class='hidden'>
+            <div class='section title'>
+              <h1 id='title'></h1>
+            </div>
+            <div class='section'>
+              <div class='row'>
+                <div class='col-xs-12 col-sm-6 col-md-4'>
+                  <table id='overview'>
+                    <tr><td>Prep Time:</td><td id='prep-time'></td></tr>
+                    <tr><td>Cook Time:</td><td id='cook-time'></td></tr>
+                    <tr><td>Serves:   </td><td><input type='number' id='serves'></td></tr>
+                  </table>
+                </div>
+               <div class='col-xs-0  col-sm-0 col-md-4'></div>
+               <div class='col-xs-12 col-sm-6 col-md-4' id='tags'></div>
+              </div>
+            </div>
+            <div class='section'>
+              <a class='collapse-button closed'><h2>Images</h2></a>
+              <div class='collapse-content hidden' id='images'></div>
+            </div>
+            <div class='section'>
+              <a class='collapse-button'><h2>Ingredients</h2></a>
+              <table class='rowclick collapse-content' width='100%' id='ingredients'></table>
+              <table class='hidden' id='ingredients-cache'></table>
+            </div>
+            <div class='section'>
+              <a class='collapse-button'><h2>Steps</h2></a>
+              <table class='rowclick collapse-content' id='steps'></table>
+            </div>
+            <div class='section' id='link'></div>
           </div>
-          <div class='section'>
-            <a class='collapse-button'><h2>Ingredients</h2></a>
-            <table class='rowclick collapse-content' width='100%' id='ingredients'></table>
-            <table class='hidden' id='ingredients-cache'></table>
-          </div>
-          <div class='section'>
-            <a class='collapse-button'><h2>Steps</h2></a>
-            <table class='rowclick collapse-content' id='steps'></table>
-          </div>
-          <div class='section' id='link'></div>
         </div>
       </div>
     </div>

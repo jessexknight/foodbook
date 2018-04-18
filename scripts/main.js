@@ -1,4 +1,13 @@
 $(document).ready(function(){
+  function showhome(home=true){
+    if (home){
+      $('#home').removeClass('hidden');
+      $('#recipe').addClass('hidden');
+    } else {
+      $('#home').addClass('hidden');
+      $('#recipe').removeClass('hidden');
+    };
+  };
   function rowclicks(){
     $('#recipe .rowclick tr').click(function(e){
       $(this).toggleClass('selected');
@@ -95,37 +104,43 @@ $(document).ready(function(){
   };
   function loadrecipe(){
     var id = window.location.hash.substr(1)
-    $.getJSON(recipefile(id),function(data){
-      $('.nav-item').removeClass('selected');
-      $('#'+id).addClass('selected');
-      // servings
-      serves = parseInt(data['serves']);
-      $('#serves')[0].value = serves;
-      // overview
-      $('#title')     .html(data['title']);
-      $('#page-title').html(data['title']);
-      $('#prep-time') .html(data['time']['prep']);
-      $('#cook-time') .html(data['time']['cook']);
-      // icons
-      $('#tags').html(genicons(data['tags']));
-      // images
-      $('#images').html(genimgs(data['images']));
-      // link
-      $('#link').html('<a href="'+data['source']+'" target="_blank">source</a>');
-      // ingredients
-      $('#ingredients').html(genitable(data['ingredients'],1,100));
-      // steps
-      $('#steps').html(genstable(data['steps'],data['ingredients'],1,100));
-      // listener: click-able table rows
-      rowclicks();
-      // listeners: change serving size
-      $('#serves').change(function(e){
-        var scale = parseFloat($(this)[0].value) / parseFloat(serves);
-        $('#ingredients').html(genitable(              data['ingredients'],scale,100));
-        $('#steps')      .html(genstable(data['steps'],data['ingredients'],scale,100));
+    if (id) { // id is not empty: try to load id.json (no change if not found)
+      $.getJSON(recipefile(id),function(data){
+        // initialization
+        showhome(false);
+        $('.nav-item').removeClass('selected');
+        $('#'+id).addClass('selected');
+        // servings
+        serves = parseInt(data['serves']);
+        $('#serves')[0].value = serves;
+        // overview
+        $('#title')     .html(data['title']);
+        $('#page-title').html(data['title']);
+        $('#prep-time') .html(data['time']['prep']);
+        $('#cook-time') .html(data['time']['cook']);
+        // icons
+        $('#tags').html(genicons(data['tags']));
+        // images
+        $('#images').html(genimgs(data['images']));
+        // link
+        $('#link').html('<a href="'+data['source']+'" target="_blank">source</a>');
+        // ingredients
+        $('#ingredients').html(genitable(data['ingredients'],1,100));
+        // steps
+        $('#steps').html(genstable(data['steps'],data['ingredients'],1,100));
+        // listener: click-able table rows
         rowclicks();
+        // listeners: change serving size
+        $('#serves').change(function(e){
+          var scale = parseFloat($(this)[0].value) / parseFloat(serves);
+          $('#ingredients').html(genitable(              data['ingredients'],scale,100));
+          $('#steps')      .html(genstable(data['steps'],data['ingredients'],scale,100));
+          rowclicks();
+        });
       });
-    });
+    } else { // id is empty: load homepage
+      showhome(true);
+    };
   };
   // build the navbar
   $('#navtags').html(genicons(['breakfast','snack','veggie','fish','meat'])); //'dessert'
@@ -147,6 +162,10 @@ $(document).ready(function(){
   $('.collapse-button').click(function(e){
     $(this).toggleClass('closed');
     $(this).next('.collapse-content').toggleClass('hidden');
+  });
+  // listener: home page
+  $('#home-link').click(function(e){
+    window.location.hash = '';
   });
   // listener: dark / light mode
   $('#dark-light').click(function(e){

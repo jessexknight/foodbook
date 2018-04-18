@@ -39,10 +39,10 @@ body {
   padding: 15px;
   display: block;
 }
-#recipe {
+#main {
   border-left: 5px solid var(--c-borders);
 }
-#recipe .section {
+#main .section {
   border-top: 15px solid var(--c-borders);
 }
 h1 {
@@ -54,8 +54,7 @@ h1 {
 #navtags {
   padding-bottom: 20px;
 }
-#dark-light,
-#git-link {
+#extras .icon-div {
   cursor: pointer;
   background-color: var(--c-borders);
   color: #999;
@@ -100,6 +99,9 @@ a:hover {
 /*------------------------------------------------------------------------------
   collapse sections
 ------------------------------------------------------------------------------*/
+.shown {
+  display: block;
+}
 .hidden {
   display: none;
 }
@@ -212,7 +214,7 @@ th, td {
   width: 100%;
   max-width: 36px;
 }
-.icon-div.breakfast { background-color: #c93; }
+.icon-div.breakfast { background-color: #963; }
 .icon-div.snack     { background-color: #f90; }
 .icon-div.dessert   { background-color: #c3f; }
 .icon-div.fish      { background-color: #69c; }
