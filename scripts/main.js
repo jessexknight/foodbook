@@ -47,7 +47,7 @@ $(document).ready(function(){
     };
   };
   function genicons(tags){
-    str = ''
+    str = '';
     for (var t in tags){
       str += '<div class="nav-filter selected icon-div '+tags[t]+' tip" id="'+tags[t]+'">'+
              '<img class="icon" src="icon/'+tags[t]+'.png"/>'+
@@ -143,7 +143,8 @@ $(document).ready(function(){
     };
   };
   // build the navbar
-  $('#navtags').html(genicons(['breakfast','snack','veggie','fish','meat'])); //'dessert'
+  alltags = ['breakfast','snack','veggie','fish','meat'];
+  $('#navtags').html(genicons(alltags)); //'dessert'
   genfilternav();
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
