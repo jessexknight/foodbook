@@ -4,7 +4,7 @@
     "prep": "10",
     "cook": "0"
   },
-  "serves": "10",
+  "serves": "5",
   "ingredients": {
     "peanut butter (crunchy)": "2 C",
     "protein powder (chocolate)": "0.5 C",
@@ -20,6 +20,7 @@
     "snack","veggie"
   ],
   "images": [
+    "protein-bars-1.jpg"
   ],
-  "source": "#"
+  "source": "https://www.yummymummykitchen.com/2017/10/trail-mix-peanut-butter-energy-balls.html"
 }
