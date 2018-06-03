@@ -1,0 +1,35 @@
+{
+  "title": "Spicy Fresh Fish Tacos",
+  "time": {
+    "prep": "10",
+    "cook": "10"
+  },
+  "serves": "2",
+  "ingredients": {
+    "fish (white fillets, shredded)": "2",
+    "tortillas": "6",
+    "cumin": "1 T",
+    "coriander": "1 T",
+    "paprika": "1 T",
+    "garlic powder": "1 T",
+    "cabbage (purple, shredded)": "1",
+    "corn (can)": "1",
+    "Greek yogurt": "0.5 C",
+    "Sriracha sauce": "1 T",
+    "lime juice": "1 T"
+  },
+  "steps": [
+    "In a small bowl, combine cumin, coriander, paprika, and garlic powder.",
+    "Toss the shreddd fish fillets in the spice mixture.",
+    "In a large pan over medium heat, fry the fish for about 5 minutes per side.",
+    "Create the sauce: combine Greek yogurt, Sriracha sauce, and lime juice.",
+    "For each of the tortillas, layer fish, cabbage, corn, and top with sauce."
+  ],
+  "tags": [
+    "fish"
+  ],
+  "images": [
+    "fish-tacos-1.jpg"
+  ],
+  "source": "https://www.escoffieronline.com/how-to-make-fish-tacos/"
+}
