@@ -1,23 +1,37 @@
 {
   "title": "Broccoli Cheddar Quiche",
   "time": {
-    "prep": "5",
-    "cook": "15"
+    "prep": "15",
+    "cook": "40"
   },
-  "serves": "1",
+  "serves": "6",
   "ingredients": {
-    "ingredient": "1 C",
-    "ingredient (specification)": "3"
+    "cheese (shredded cheddar)": "1 C",
+    "flour (all-purpose)": "0.75 C",
+    "butter (soft)": "0.25 C",
+    "mustard (dry)": "0.25 t",
+    "salt": "0.25 t",
+    "broccoli (chopped)": "1.5 C",
+    "mushrooms (sliced)": "1 C",
+    "onions (chopped fine)": "1 C",
+    "evaporated milk": "1 C",
+    "eggs (beaten)": "3",
+    "nutmeg": "0.25 t",
+    "pepper": "0.25 t"
   },
   "steps": [
-    "Step 1",
-    "Step 2",
-    "Step 3"
+    "Pre-heat oven to 400 F.",
+    "To make the crust, mix together cheese, flour, mustard, butter, and salt. Press evenly onto bottom and sides of a 10-inch pie dish.",
+    "In a large pan over medium-high heat, sauté broccoli and onions for 3 minutes. Add mushrooms and cook another 2 minutes.",
+    "To make the filling, mix together eggs evaporated milk, nutmeg, and pepper. Add broccoli, onions, and mushrooms.",
+    "Pour filling into the crust.",
+    "Bake for 15 minutes. Reduce heat to 375 F, then bake another 20 minutes, or until a knife in the centre comes out clean."
   ],
   "tags": [
-    "breakfast","snack","veggie","fish","meat"
+    "veggie"
   ],
   "images": [
+    "broccoli-quiche-1.jpg"
   ],
   "source": "http://www.geniuskitchen.com/recipe/broccoli-quiche-26886"
 }
