@@ -49,7 +49,7 @@ $(document).ready(function(){
   function genicons(tags){
     str = '';
     for (var t in tags){
-      str += '<div class="nav-filter selected icon-div '+tags[t]+' tip" id="'+tags[t]+'">'+
+      str += '<div class="nav-filter icon-div '+tags[t]+' tip" id="'+tags[t]+'">'+
              '<img class="icon" src="icon/'+tags[t]+'.png"/>'+
              '<span class="tiptext">'+tags[t]+'</span>'+
              '</div>';
@@ -92,10 +92,14 @@ $(document).ready(function(){
       $('#navtable').html('');
       for (var i in list){(function(i){
         $.getJSON(recipefile(list[i]),function(data){
-          var tagfilters = Array.from($('#navtags .nav-filter.selected'),function(o){
+          var tagsOn = Array.from($('#navtags .nav-filter.toggle-on'),function(o){
             return o.id;
           });
-          if (data['tags'].map(tag => tagfilters.indexOf(tag)).some(i => i>-1)) {
+          var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){
+            return o.id;
+          });
+          if ((tagsOn.every(tag => data['tags'].includes(tag)))
+          && !(data['tags'].some(tag => tagsOff.includes(tag)))) {
             $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="@'+list[i]+'"'));
           };
         });
@@ -154,9 +158,16 @@ $(document).ready(function(){
   $(document).on('click','.nav-item',function(e){
     window.location.hash = this.id.substr(1);
   });
-  // listener: nav-filter click -> filter nav-items
+  // listener: nav-filter click -> cycle filters: on | off | neutral; filter nav-items
   $(document).on('click','.nav-filter',function(e){
-    $(this).toggleClass('selected');
+    if ($(this).hasClass('toggle-on')) {
+      $(this).removeClass('toggle-on')
+      $(this).addClass('toggle-off')
+    } else if ($(this).hasClass('toggle-off')) {
+      $(this).removeClass('toggle-off')
+    } else {
+      $(this).addClass('toggle-on')
+    }
     genfilternav();
   });
   // listener: collapse sections

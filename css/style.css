@@ -221,13 +221,28 @@ th, td {
 .meat      { background-color: #c30; }
 .veggie    { background-color: #0c6; }
 #navtags .icon-div {
-  opacity: 0.3;
+  opacity: 0.6;
 }
+/* #navtags .icon-div {
+  background: #fff;
+  opacity: 0.6;
+  clip-path: polygon(
+    0% 0%,
+    0% 50%,
+    100% 50%,
+    100% 0
+ );
+} */
 #navtags .icon-div:hover {
   cursor: pointer;
 }
-#navtags .icon-div.selected {
-  opacity: 0.8;
+#navtags .icon-div.toggle-on {
+  opacity: 1.0;
+  /* box-shadow: 0px 0px 8px 4px #666; */
+}
+#navtags .icon-div.toggle-off {
+  opacity: 0.2;
+  /* box-shadow: inset 0px 0px 8px 4px #666; */
 }
 #tags, #extras {
   margin-bottom: 40px;
