@@ -221,28 +221,23 @@ th, td {
 .meat      { background-color: #c30; }
 .veggie    { background-color: #0c6; }
 #navtags .icon-div {
-  opacity: 0.6;
+  opacity: 0.75;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
-/* #navtags .icon-div {
-  background: #fff;
-  opacity: 0.6;
-  clip-path: polygon(
-    0% 0%,
-    0% 50%,
-    100% 50%,
-    100% 0
- );
-} */
 #navtags .icon-div:hover {
   cursor: pointer;
 }
 #navtags .icon-div.toggle-on {
-  opacity: 1.0;
-  /* box-shadow: 0px 0px 8px 4px #666; */
+  background-image: url('../icon/toggle-on.png');
 }
 #navtags .icon-div.toggle-off {
-  opacity: 0.2;
-  /* box-shadow: inset 0px 0px 8px 4px #666; */
+  background-image: url('../icon/toggle-off.png');
+}
+#navtags .icon-div.toggle-on img,
+#navtags .icon-div.toggle-off img {
+  opacity: 0.5;
 }
 #tags, #extras {
   margin-bottom: 40px;
