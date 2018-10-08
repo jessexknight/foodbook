@@ -1,0 +1,36 @@
+{
+  "title": "Coconut Curry Lentil Soup",
+  "time": {
+    "prep": "10",
+    "cook": "20"
+  },
+  "serves": "4",
+  "ingredients": {
+    "onion (yellow chopped)": "1",
+    "garlic (minced)": "2 cloves",
+    "lentils (red split, uncooked)": "1.5 C",
+    "vegetable stock": "2 C",
+    "coconut milk": "1.5 C",
+    "diced tomatoes": "1.5 C",
+    "curry powder": "1 t",
+    "cayenne": "0.5 t",
+    "turmeric": "0.5 t",
+    "ginger": "0.5 t",
+    "salt": "1 t"
+  },
+  "steps": [
+    "In a large pot over medium heat, sauté onion and garlic for 5 minutes.",
+    "Add lentils and stir for about 1 minute.",
+    "Add remaining ingredients and increase heat to high.",
+    "After the soup comes to a boil, reduce heat to low and simmer for 12 minutes.",
+    "In a fry pan over medium-low heat, toast almonds until they just begin to brown. Remove from heat immediately.",
+    "Garnish soup with almonds and serve."
+  ],
+  "tags": [
+    "veggie"
+  ],
+  "images": [
+    "lentil-soup-1.jpg"
+  ],
+  "source": "http://orchardstreetkitchen.com/coconut-curry-lentil-soup/"
+}
