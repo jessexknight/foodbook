@@ -9,10 +9,15 @@ $(document).ready(function(){
     };
   };
   function rowclicks(){
-    $('#recipe .rowclick tr').click(function(e){
+    $('#recipe .rowclick tr').off('click').on('click',function(e){
       $(this).toggleClass('selected');
     });
   };
+  function selectnav(){
+    var id = window.location.hash.substr(1)
+    $('.nav-item.selected').not('#-'+id).removeClass('selected');
+    $('#-'+id).addClass('selected');
+  }
   function recipefile(id){
     return 'recipes/'+id+'.json';
   }
@@ -100,8 +105,9 @@ $(document).ready(function(){
           });
           if ((tagsOn.every(tag => data['tags'].includes(tag)))
           && !(data['tags'].some(tag => tagsOff.includes(tag)))) {
-            $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="@'+list[i]+'"'));
+            $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="-'+list[i]+'"'));
           };
+          selectnav();
         });
       })(i)};
     });
@@ -112,8 +118,6 @@ $(document).ready(function(){
       $.getJSON(recipefile(id),function(data){
         // initialization
         showhome(false);
-        $('.nav-item').removeClass('selected');
-        $('#'+id).addClass('selected');
         // servings
         serves = parseInt(data['serves']);
         $('#serves')[0].value = serves;
@@ -153,6 +157,7 @@ $(document).ready(function(){
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
     loadrecipe();
+    selectnav();
   });
   // listener: nav-item click -> change hash
   $(document).on('click','.nav-item',function(e){
