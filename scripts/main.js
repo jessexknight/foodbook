@@ -171,6 +171,7 @@ $(document).ready(function(){
     } else { // id is empty: load homepage
       showhome(true);
     };
+    window.scrollTo(0, 0);
   };
   // build the navbar
   alltags = ['breakfast','snack','veggie','fish','meat'];
