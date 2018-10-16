@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------*/
 body.light {
   --c-background: #fff;
-  --c-borders:    #eee;
+  --c-borders:    #ddd;
   --c-text:       #000;
   --c-link:       #c66;
   --c-hover:      #933;
@@ -13,7 +13,7 @@ body.light {
   --c-hover-text: #399;
 }
 body.dark {
-  --c-background: #333;
+  --c-background: #222;
   --c-borders:    #444;
   --c-text:       #ccc;
   --c-link:       #c66;
@@ -228,6 +228,7 @@ th, td {
 }
 #navtags .icon-div:hover {
   cursor: pointer;
+  opacity: 1.0;
 }
 #navtags .icon-div.toggle-on {
   background-image: url('../icon/toggle-on.png');
@@ -253,4 +254,36 @@ th, td {
 }
 #extras .icon-div.tip:hover .tiptext {
   color: #999;
+}
+/*------------------------------------------------------------------------------
+  home page cards
+------------------------------------------------------------------------------*/
+.grid-container {
+  padding: 5px;
+}
+.grid-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.grid-item > .overlay {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 150%;
+  background-color: var(--c-background);
+  opacity: 0.8;
+  visibility: hidden;
+  color: var(--c-text);
+}
+.grid-item:hover > .overlay {
+  visibility: visible;
 }

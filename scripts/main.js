@@ -3,6 +3,7 @@ $(document).ready(function(){
     if (home){
       $('#home').removeClass('hidden');
       $('#recipe').addClass('hidden');
+      $('#page-title').html('Foodbook');
     } else {
       $('#home').addClass('hidden');
       $('#recipe').removeClass('hidden');
@@ -14,8 +15,8 @@ $(document).ready(function(){
     });
   };
   function selectnav(){
-    var id = window.location.hash.substr(1)
-    $('.nav-item.selected').not('#-'+id).removeClass('selected');
+    var id = window.location.hash.substr(4)
+      $('.nav-item.selected').not('#-'+id).removeClass('selected');
     $('#-'+id).addClass('selected');
   }
   function recipefile(id){
@@ -61,9 +62,10 @@ $(document).ready(function(){
     };
     return str;
   };
-  function genimgs(imgs){
+  function genimgs(imgs,max=100){
     str = ''
     for (var i in imgs){
+      if (i >= max){console.log(max); break;}
       str += '<img width="100%" src="img/'+imgs[i]+'""/>';
     };
     return str;
@@ -92,6 +94,26 @@ $(document).ready(function(){
     };
     return str;
   };
+  function gencard(id,data){
+    str = htmlobject('div',
+            genimgs(data['images'],max=1)+
+            htmlobject('div',
+              htmlobject('div',
+                data['title'],
+              'class="overlay"'),
+            'class="grid-item" id="grid-'+id+'"'),
+          'class="grid-container"')
+    return htmlobject('div',str,'class="col-xs-12 col-sm-4 col-md-6 col-lg-4"')
+  }
+  function gengrid(){
+    return $.getJSON('list.json',function(list){
+      for (var i in list){(function(i){
+        $.getJSON(recipefile(list[i]),function(data){
+          $('#grid').append(gencard(list[i],data))
+        });
+      })(i)};
+    });
+  };
   function genfilternav(){
     return $.getJSON('list.json',function(list){
       $('#navtable').html('');
@@ -100,12 +122,12 @@ $(document).ready(function(){
           var tagsOn = Array.from($('#navtags .nav-filter.toggle-on'),function(o){
             return o.id;
           });
-          var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){
+          var tagsOff = Array.from($('#navtags .nav-filteroggle-off'),function(o){
             return o.id;
           });
           if ((tagsOn.every(tag => data['tags'].includes(tag)))
           && !(data['tags'].some(tag => tagsOff.includes(tag)))) {
-            $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="-'+list[i]+'"'));
+            $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="nav-'+list[i]+'"'));
           };
           selectnav();
         });
@@ -154,6 +176,7 @@ $(document).ready(function(){
   alltags = ['breakfast','snack','veggie','fish','meat'];
   $('#navtags').html(genicons(alltags)); //'dessert'
   genfilternav();
+  gengrid();
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
     loadrecipe();
@@ -161,7 +184,11 @@ $(document).ready(function(){
   });
   // listener: nav-item click -> change hash
   $(document).on('click','.nav-item',function(e){
-    window.location.hash = this.id.substr(1);
+    window.location.hash = this.id.substr(4);
+  });
+  // listener: grid-item click -> change hash
+  $(document).on('click','.grid-item',function(e){
+    window.location.hash = this.id.substr(5);
   });
   // listener: nav-filter click -> cycle filters: on | off | neutral; filter nav-items
   $(document).on('click','.nav-filter',function(e){
