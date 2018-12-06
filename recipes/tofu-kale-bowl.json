@@ -1,0 +1,36 @@
+{
+  "title": "Quinoa Tofu Kale Bowl",
+  "time": {
+    "prep": "5",
+    "cook": "20"
+  },
+  "serves": "4",
+  "ingredients": {
+    "quinoa (uncooked)": "1 C",
+    "vegetable broth": "2 C",
+    "tofu (firm, diced)": "500 g",
+    "chickpeas (drained)": "1 C",
+    "onion (yellow chopped)": "0.5",
+    "kale (chopped)": "3 C",
+    "oil (cooking)": "3 T",
+    "Greek yogurt": "0.5 C",
+    "water": "0.5 C",
+    "Salsa Lizano": "1 T",
+    "chili powder": "1 t",
+    "curry powder": "1 t"
+  },
+  "steps": [
+    "Combine vegetable broth, quinoa, and chili powder. Bring to a boil uncovered, then  cover and simmer until quinoa is cooked, about 20 minutes.",
+    "Heat 2 T of the oil in a large non-stick pan over high heat. Fry the tofu, tossing regularly to brown sides evenly.",
+    "Heat 1 T of the oil in a different pan over medium heat. Add the onion, curry powder, and chickpeas, and fry for about 12 minutes.",
+    "Combine the Greek yogurt, water, and Salsa Lizano to make the sauce.",
+    "On a bed of kale, serve the quinoa, chickpeas and onion, and fried tofu. Top with sauce."
+  ],
+  "tags": [
+    "veggie"
+  ],
+  "images": [
+    "tofu-kale-bowl-1.jpg"
+  ],
+  "source": "https://minimalistbaker.com/quinoa-chickpea-buddha-bowl"
+}
