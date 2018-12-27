@@ -1,0 +1,36 @@
+{
+  "title": "Chocolate Chip Cookies",
+  "time": {
+    "prep": "15",
+    "cook": "20"
+  },
+  "serves": "15",
+  "ingredients": {
+    "butter (unsalted, melted)": "1 C",
+    "brown sugar": "1.25 C",
+    "white sugar": "0.5 C",
+    "eggs": "2",
+    "vanilla extract": "1.5 t",
+    "flour (all-purpose)": "2.75",
+    "cornstarch": "2 t",
+    "baking soda": "1 t",
+    "salt": "0.75 t",
+    "chocolate chips (semisweet)": "1.75 C"
+  },
+  "steps": [
+    "In a large bowl, combine butter, brown sugar, white sugar, eggs, and vanilla extract. Stir very well.",
+    "In a medium bowl, combine flour, cornstarch, baking soda, and salt.",
+    "Add the dry ingredients to the wet ingredients. Mix very well, then add the chocolate chips.",
+    "Chill dough in refrigerator for 30 minutes.",
+    "Pre-heat oven to 350 F.",
+    "On parchment-lined cookie pans, scoop dough into 1.5 T blobs, about 5 cm apart.",
+    "Bake for 11 minutes, then remove to cool and continue solidifying for another 10."
+  ],
+  "tags": [
+    "dessert"
+  ],
+  "images": [
+    "chocolate-chip-cookies-1.jpg"
+  ],
+  "source": "https://www.spendwithpennies.com/perfect-chocolate-chip-cookies/"
+}
