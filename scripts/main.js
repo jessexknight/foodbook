@@ -174,7 +174,7 @@ $(document).ready(function(){
     window.scrollTo(0, 0);
   };
   // build the navbar
-  alltags = ['breakfast','snack','veggie','fish','meat','dessert'];
+  alltags = ['breakfast','snack','vegan','veggie','fish','meat','dessert','gluten-free'];
   $('#navtags').html(genicons(alltags)); //'dessert'
   genfilternav();
   gengrid();

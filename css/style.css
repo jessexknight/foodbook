@@ -214,12 +214,14 @@ th, td {
   width: 100%;
   max-width: 36px;
 }
-.breakfast { background-color: #963; }
-.snack     { background-color: #f90; }
-.dessert   { background-color: #c3f; }
-.fish      { background-color: #69c; }
-.meat      { background-color: #c30; }
-.veggie    { background-color: #3c6; }
+.breakfast   { background-color: #963; }
+.snack       { background-color: #fb0; }
+.dessert     { background-color: #c3f; }
+.fish        { background-color: #69c; }
+.meat        { background-color: #c30; }
+.veggie      { background-color: #3c6; }
+.vegan       { background-color: #9e3; }
+.gluten-free { background-color: #666; }
 #navtags .icon-div {
   opacity: 0.75;
   background-size: contain;
