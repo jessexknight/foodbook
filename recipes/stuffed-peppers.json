@@ -20,7 +20,7 @@
     "green onions (thin sliced)": "3",
     "dried cranberries": "1 C",
     "walnuts (chopped)": "1 C",
-    "feta cheese (crumbled)": "1 C",
+    "feta cheese (crumbled) *": "1 C",
     "eggs (beaten)": "1"
   },
   "steps": [
@@ -33,7 +33,7 @@
     "Bake stuffed peppers for 20 minutes."
   ],
   "tags": [
-    "veggie"
+    "vegan","veggie"
   ],
   "images": [
     "stuffed-peppers-1.jpg"

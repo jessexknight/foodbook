@@ -156,6 +156,11 @@ $(document).ready(function(){
         $('#link').html('<a href="'+data['source']+'" target="_blank">source</a>');
         // ingredients
         $('#ingredients').html(genitable(data['ingredients'],1,100));
+        if (data['tags'].indexOf('vegan') == -1) {
+          $('#vegan-msg').addClass('hidden');
+        } else {
+          $('#vegan-msg').removeClass('hidden');
+        };
         // steps
         $('#steps').html(genstable(data['steps'],data['ingredients'],1,100));
         // listener: click-able table rows
