@@ -122,7 +122,7 @@ $(document).ready(function(){
           var tagsOn = Array.from($('#navtags .nav-filter.toggle-on'),function(o){
             return o.id;
           });
-          var tagsOff = Array.from($('#navtags .nav-filteroggle-off'),function(o){
+          var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){
             return o.id;
           });
           if ((tagsOn.every(tag => data['tags'].includes(tag)))
