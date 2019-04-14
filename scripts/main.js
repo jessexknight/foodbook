@@ -117,14 +117,10 @@ $(document).ready(function(){
   function genfilternav(){
     return $.getJSON('list.json',function(list){
       $('#navtable').html('');
+      var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
+      var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
       for (var i in list){(function(i){
         $.getJSON(recipefile(list[i]),function(data){
-          var tagsOn = Array.from($('#navtags .nav-filter.toggle-on'),function(o){
-            return o.id;
-          });
-          var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){
-            return o.id;
-          });
           if ((tagsOn.every(tag => data['tags'].includes(tag)))
           && !(data['tags'].some(tag => tagsOff.includes(tag)))) {
             $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="nav-'+list[i]+'"'));
