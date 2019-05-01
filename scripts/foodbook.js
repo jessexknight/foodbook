@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  function showHome(home=true){
+  function showHome(home){
     if (home){
       $('#home').removeClass('hidden');
       $('#recipe').addClass('hidden');
@@ -7,16 +7,16 @@ $(document).ready(function(){
     } else {
       $('#home').addClass('hidden');
       $('#recipe').removeClass('hidden');
-    };
-  };
+    }
+  }
   function rowClicks(){
     $('#recipe .rowclick tr').off('click').on('click',function(e){
       $(this).toggleClass('selected');
     });
-  };
+  }
   function selectNav(){
-    var id = window.location.hash.substr(4)
-      $('.nav-item.selected').not('#-'+id).removeClass('selected');
+    var id = window.location.hash.substr(4);
+    $('.nav-item.selected').not('#-'+id).removeClass('selected');
     $('#-'+id).addClass('selected');
   }
   function recipeFile(id){
@@ -24,34 +24,37 @@ $(document).ready(function(){
   }
   function fmtNum(num,precision){
     return (Math.round(precision*num)/precision).toString();
-  };
+  }
   function tooltip(str,match,hover){
     match = match.replace(/ *\([^)]*\) */,'');
-    var re = new RegExp('([^\\w])('+match+')([^\\w])','g')
+    var re = new RegExp('([^\\w])('+match+')([^\\w])','g');
     var tool = '$1<span class="tip">$2<span class="tiptext">'+hover+'</span></span>$3';
     return str.replace(re,tool);
-  };
-  function htmlObject(obj,str,props=null){
-    if (props == null){
+  }
+  function htmlObject(obj,str,props){
+    if (props === undefined){
       return '<'+obj+'>'+str+'</'+obj+'>';
     } else {
       return '<'+obj+' '+props+'>'+str+'</'+obj+'>';
-    };
-  };
-  function tRow(str,props=null){
+    }
+  }
+  function tRow(str,props){
     return htmlObject('tr',str,props);
-  };
-  function tCell(str,props=null){
+  }
+  function tCell(str,props){
     return htmlObject('td',str,props);
-  };
-  function ingrScale(amount,scale,precision=100){
-    split = amount.match('(.*?)\\s(\\S*)')
+  }
+  function ingrScale(amount,scale,precision){
+    if (precision === undefined) {
+      precision = 100;
+    }
+    split = amount.match('(.*?)\\s(\\S*)');
     if (split == null) {
       return fmtNum(scale*parseFloat(amount),  precision);
     } else {
       return fmtNum(scale*parseFloat(split[1]),precision)+' '+split[2];
-    };
-  };
+    }
+  }
   function genIcons(tags){
     str = '';
     for (var t in tags){
@@ -59,17 +62,20 @@ $(document).ready(function(){
              '<img class="icon" src="icon/'+tags[t]+'.png"/>'+
              '<span class="tiptext">'+tags[t]+'</span>'+
              '</div>';
-    };
+    }
     return str;
-  };
-  function genImages(imgs,max=100){
-    str = ''
+  }
+  function genImages(imgs,max){
+    if (max === undefined){
+      max = 100;
+    }
+    str = '';
     for (var i in imgs){
       if (i >= max){console.log(max); break;}
       str += '<img width="100%" src="img/'+imgs[i]+'""/>';
-    };
+    }
     return str;
-  };
+  }
   function genIngrTable(ingredients,scale,precision){
     str = '';
     for (var ingredient in ingredients){
@@ -77,13 +83,13 @@ $(document).ready(function(){
         tCell(ingrScale(ingredients[ingredient],scale,100))+
         tCell(ingredient)
       );
-    };
+    }
     return str;
-  };
+  }
   function genStepTable(steps,ingredients,scale,precision){
     str = '';
     for (var index in steps){
-      step = steps[index]
+      step = steps[index];
       for (var ingredient in ingredients){
         step = tooltip(step,ingredient,ingrScale(ingredients[ingredient],scale,100));
       }
@@ -91,29 +97,29 @@ $(document).ready(function(){
         tCell(parseInt(index)+1,'valign="top"')+
         tCell(step)
       );
-    };
+    }
     return str;
-  };
+  }
   function genCard(id,data){
     str = htmlObject('div',
-            genImages(data['images'],max=1)+
+            genImages(data.images,max=1)+
             htmlObject('div',
               htmlObject('div',
-                data['title'],
+                data.title,
               'class="overlay"'),
             'class="grid-item" id="grid-'+id+'"'),
-          'class="grid-container"')
-    return htmlObject('div',str,'class="col-xs-12 col-sm-4 col-md-6 col-lg-4"')
+          'class="grid-container"');
+    return htmlObject('div',str,'class="col-xs-12 col-sm-4 col-md-6 col-lg-4"');
   }
   function genGrid(){
     return $.getJSON('list.json',function(list){
       for (var i in list){(function(i){
         $.getJSON(recipeFile(list[i]),function(data){
-          $('#grid').append(genCard(list[i],data))
+          $('#grid').append(genCard(list[i],data));
         });
-      })(i)};
+      })(i);}
     });
-  };
+  }
   function genNav(){
     return $.getJSON('list.json',function(list){
       nav = $('#navtable');
@@ -122,82 +128,81 @@ $(document).ready(function(){
         nav.append(tRow('',
           'class="nav-item"'+
           'id="nav-'+list[i]+'"'
-        ))
+        ));
       }
-      for (var i in list){(function(i){
+      for (i in list){(function(i){
         $.getJSON(recipeFile(list[i]),function(data){
-          navrow = $('#nav-'+list[i])
-          navrow.html(tCell(data['title']))
-          navrow.attr('data-tags',data['tags'])
+          navrow = $('#nav-'+list[i]);
+          navrow.html(tCell(data.title));
+          navrow.attr('data-tags',data.tags);
         });
-      })(i)};
+      })(i);}
     });
-  };
+  }
   function filterNav(){
     var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
     var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
     $.getJSON('list.json',function(list){
       for (var i in list){
-        navrow = $('#nav-'+list[i])
-        tags = navrow.attr('data-tags').split(',')
-        if ((tagsOn.every(tag => tags.includes(tag)))
-        && !(tags.some(tag => tagsOff.includes(tag)))){
-          navrow.removeClass('hidden')
+        navrow = $('#nav-'+list[i]);
+        tags = navrow.attr('data-tags').split(',');
+        if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
+           !(tags.some(function(tag) { return tagsOff.includes(tag); }))){
+          navrow.removeClass('hidden');
         } else {
           navrow.addClass('hidden');
         }
-      };
+      }
     });
-  };
+  }
   function loadRecipe(){
-    var id = window.location.hash.substr(1)
+    var id = window.location.hash.substr(1);
     if (id) { // id is not empty: try to load id.json (no change if not found)
       $.getJSON(recipeFile(id),function(data){
         // initialization
         showHome(false);
         // servings
-        serves = parseInt(data['serves']);
+        serves = parseInt(data.serves);
         $('#serves')[0].value = serves;
         // overview
-        $('#title')     .html(data['title']);
-        $('#page-title').html(data['title']);
-        $('#prep-time') .html(data['time']['prep']);
-        $('#cook-time') .html(data['time']['cook']);
+        $('#title')     .html(data.title);
+        $('#page-title').html(data.title);
+        $('#prep-time') .html(data.time.prep);
+        $('#cook-time') .html(data.time.cook);
         // icons
-        $('#tags').html(genIcons(data['tags']));
+        $('#tags').html(genIcons(data.tags));
         // images
-        $('#images').html(genImages(data['images']));
+        $('#images').html(genImages(data.images));
         // link
-        $('#link').html('<a href="'+data['source']+'" target="_blank">source</a>');
+        $('#link').html('<a href="'+data.source+'" target="_blank">source</a>');
         // ingredients
-        $('#ingredients').html(genIngrTable(data['ingredients'],1,100));
-        if (data['tags'].indexOf('vegan') == -1) {
+        $('#ingredients').html(genIngrTable(data.ingredients,1,100));
+        if (data.tags.indexOf('vegan') == -1) {
           $('#vegan-msg').addClass('hidden');
         } else {
           $('#vegan-msg').removeClass('hidden');
-        };
+        }
         // steps
-        $('#steps').html(genStepTable(data['steps'],data['ingredients'],1,100));
+        $('#steps').html(genStepTable(data.steps,data.ingredients,1,100));
         // listener: click-able table rows
         rowClicks();
         // listeners: change serving size
         $('#serves').change(function(e){
           var scale = parseFloat($(this)[0].value) / parseFloat(serves);
-          $('#ingredients').html(genIngrTable(              data['ingredients'],scale,100));
-          $('#steps')      .html(genStepTable(data['steps'],data['ingredients'],scale,100));
+          $('#ingredients').html(genIngrTable(           data.ingredients,scale,100));
+          $('#steps')      .html(genStepTable(data.steps,data.ingredients,scale,100));
           rowClicks();
         });
       });
     } else { // id is empty: load homepage
       showHome(true);
-    };
+    }
     window.scrollTo(0, 0);
-  };
+  }
   // build the navbar
   alltags = ['breakfast','snack','vegan','veggie','fish','meat','dessert','gluten-free'];
   $('#navtags').html(genIcons(alltags));
   genNav();
-  filterNav();
   genGrid();
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
@@ -215,12 +220,12 @@ $(document).ready(function(){
   // listener: nav-filter click -> cycle filters: on | off | neutral; filter nav-items
   $(document).on('click','.nav-filter',function(e){
     if ($(this).hasClass('toggle-on')) {
-      $(this).removeClass('toggle-on')
-      $(this).addClass('toggle-off')
+      $(this).removeClass('toggle-on');
+      $(this).addClass('toggle-off');
     } else if ($(this).hasClass('toggle-off')) {
-      $(this).removeClass('toggle-off')
+      $(this).removeClass('toggle-off');
     } else {
-      $(this).addClass('toggle-on')
+      $(this).addClass('toggle-on');
     }
     filterNav();
   });
@@ -243,7 +248,7 @@ $(document).ready(function(){
     } else if ($('body').hasClass('light')){
       $('#dark-light-img').attr('src','icon/dark.png');
       $('#dark-light-tip').html('dark mode');
-    };
+    }
   });
   // load any initial recipe (silent js error if not found)
   loadRecipe();
