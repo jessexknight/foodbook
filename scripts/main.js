@@ -114,20 +114,38 @@ $(document).ready(function(){
       })(i)};
     });
   };
-  function genfilternav(){
+  function gennav(){
     return $.getJSON('list.json',function(list){
       $('#navtable').html('');
-      var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
-      var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
+      for (var i in list){
+        $('#navtable').append(trow('',
+          'class="nav-item"'+
+          'id="nav-'+list[i]+'"'
+        ))
+      }
       for (var i in list){(function(i){
         $.getJSON(recipefile(list[i]),function(data){
-          if ((tagsOn.every(tag => data['tags'].includes(tag)))
-          && !(data['tags'].some(tag => tagsOff.includes(tag)))) {
-            $('#navtable').append(trow(tcell(data['title']),'class="nav-item" id="nav-'+list[i]+'"'));
-          };
-          selectnav();
+          navrow = $('#nav-'+list[i])
+          navrow.html(tcell(data['title']))
+          navrow.attr('data-tags',data['tags'])
         });
       })(i)};
+    });
+  };
+  function filternav(){
+    var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
+    var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
+    $.getJSON('list.json',function(list){
+      for (var i in list){
+        navrow = $('#nav-'+list[i])
+        tags = navrow.attr('data-tags').split(',')
+        if ((tagsOn.every(tag => tags.includes(tag)))
+        && !(tags.some(tag => tagsOff.includes(tag)))){
+          navrow.removeClass('hidden')
+        } else {
+          navrow.addClass('hidden');
+        }
+      };
     });
   };
   function loadrecipe(){
@@ -176,8 +194,9 @@ $(document).ready(function(){
   };
   // build the navbar
   alltags = ['breakfast','snack','vegan','veggie','fish','meat','dessert','gluten-free'];
-  $('#navtags').html(genicons(alltags)); //'dessert'
-  genfilternav();
+  $('#navtags').html(genicons(alltags));
+  gennav();
+  filternav();
   gengrid();
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
@@ -202,7 +221,7 @@ $(document).ready(function(){
     } else {
       $(this).addClass('toggle-on')
     }
-    genfilternav();
+    filternav();
   });
   // listener: collapse sections
   $('.collapse-button').click(function(e){
