@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  function showhome(home=true){
+  function showHome(home=true){
     if (home){
       $('#home').removeClass('hidden');
       $('#recipe').addClass('hidden');
@@ -9,20 +9,20 @@ $(document).ready(function(){
       $('#recipe').removeClass('hidden');
     };
   };
-  function rowclicks(){
+  function rowClicks(){
     $('#recipe .rowclick tr').off('click').on('click',function(e){
       $(this).toggleClass('selected');
     });
   };
-  function selectnav(){
+  function selectNav(){
     var id = window.location.hash.substr(4)
       $('.nav-item.selected').not('#-'+id).removeClass('selected');
     $('#-'+id).addClass('selected');
   }
-  function recipefile(id){
+  function recipeFile(id){
     return 'recipes/'+id+'.json';
   }
-  function numfmt(num,precision){
+  function fmtNum(num,precision){
     return (Math.round(precision*num)/precision).toString();
   };
   function tooltip(str,match,hover){
@@ -31,28 +31,28 @@ $(document).ready(function(){
     var tool = '$1<span class="tip">$2<span class="tiptext">'+hover+'</span></span>$3';
     return str.replace(re,tool);
   };
-  function htmlobject(obj,str,props=null){
+  function htmlObject(obj,str,props=null){
     if (props == null){
       return '<'+obj+'>'+str+'</'+obj+'>';
     } else {
       return '<'+obj+' '+props+'>'+str+'</'+obj+'>';
     };
   };
-  function trow(str,props=null){
-    return htmlobject('tr',str,props);
+  function tRow(str,props=null){
+    return htmlObject('tr',str,props);
   };
-  function tcell(str,props=null){
-    return htmlobject('td',str,props);
+  function tCell(str,props=null){
+    return htmlObject('td',str,props);
   };
-  function iscale(amount,scale,precision=100){
+  function ingrScale(amount,scale,precision=100){
     split = amount.match('(.*?)\\s(\\S*)')
     if (split == null) {
-      return numfmt(scale*parseFloat(amount),  precision);
+      return fmtNum(scale*parseFloat(amount),  precision);
     } else {
-      return numfmt(scale*parseFloat(split[1]),precision)+' '+split[2];
+      return fmtNum(scale*parseFloat(split[1]),precision)+' '+split[2];
     };
   };
-  function genicons(tags){
+  function genIcons(tags){
     str = '';
     for (var t in tags){
       str += '<div class="nav-filter icon-div '+tags[t]+' tip" id="'+tags[t]+'">'+
@@ -62,7 +62,7 @@ $(document).ready(function(){
     };
     return str;
   };
-  function genimgs(imgs,max=100){
+  function genImages(imgs,max=100){
     str = ''
     for (var i in imgs){
       if (i >= max){console.log(max); break;}
@@ -70,69 +70,70 @@ $(document).ready(function(){
     };
     return str;
   };
-  function genitable(ingredients,scale,precision){
+  function genIngrTable(ingredients,scale,precision){
     str = '';
     for (var ingredient in ingredients){
-      str += trow(
-        tcell(iscale(ingredients[ingredient],scale,100))+
-        tcell(ingredient)
+      str += tRow(
+        tCell(ingrScale(ingredients[ingredient],scale,100))+
+        tCell(ingredient)
       );
     };
     return str;
   };
-  function genstable(steps,ingredients,scale,precision){
+  function genStepTable(steps,ingredients,scale,precision){
     str = '';
     for (var index in steps){
       step = steps[index]
       for (var ingredient in ingredients){
-        step = tooltip(step,ingredient,iscale(ingredients[ingredient],scale,100));
+        step = tooltip(step,ingredient,ingrScale(ingredients[ingredient],scale,100));
       }
-      str += trow(
-        tcell(parseInt(index)+1,'valign="top"')+
-        tcell(step)
+      str += tRow(
+        tCell(parseInt(index)+1,'valign="top"')+
+        tCell(step)
       );
     };
     return str;
   };
-  function gencard(id,data){
-    str = htmlobject('div',
-            genimgs(data['images'],max=1)+
-            htmlobject('div',
-              htmlobject('div',
+  function genCard(id,data){
+    str = htmlObject('div',
+            genImages(data['images'],max=1)+
+            htmlObject('div',
+              htmlObject('div',
                 data['title'],
               'class="overlay"'),
             'class="grid-item" id="grid-'+id+'"'),
           'class="grid-container"')
-    return htmlobject('div',str,'class="col-xs-12 col-sm-4 col-md-6 col-lg-4"')
+    return htmlObject('div',str,'class="col-xs-12 col-sm-4 col-md-6 col-lg-4"')
   }
-  function gengrid(){
+  function genGrid(){
     return $.getJSON('list.json',function(list){
       for (var i in list){(function(i){
-        $.getJSON(recipefile(list[i]),function(data){
-          $('#grid').append(gencard(list[i],data))
+        $.getJSON(recipeFile(list[i]),function(data){
+          $('#grid').append(genCard(list[i],data))
         });
       })(i)};
     });
   };
-  function gennav(){
+  function genNav(){
     return $.getJSON('list.json',function(list){
-      $('#navtable').html('');
+      nav = $('#navtable');
+      nav.html('');
       for (var i in list){
-        $('#navtable').append(trow('',
+        nav.append(tRow('',
           'class="nav-item"'+
           'id="nav-'+list[i]+'"'
         ))
       }
       for (var i in list){(function(i){
-        $.getJSON(recipefile(list[i]),function(data){
+        $.getJSON(recipeFile(list[i]),function(data){
           navrow = $('#nav-'+list[i])
-          navrow.html(tcell(data['title']))
+          navrow.html(tCell(data['title']))
           navrow.attr('data-tags',data['tags'])
         });
       })(i)};
     });
   };
-  function filternav(){
+  function filterNav(){
     var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
     var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
     $.getJSON('list.json',function(list){
@@ -148,12 +149,12 @@ $(document).ready(function(){
       };
     });
   };
-  function loadrecipe(){
+  function loadRecipe(){
     var id = window.location.hash.substr(1)
     if (id) { // id is not empty: try to load id.json (no change if not found)
-      $.getJSON(recipefile(id),function(data){
+      $.getJSON(recipeFile(id),function(data){
         // initialization
-        showhome(false);
+        showHome(false);
         // servings
         serves = parseInt(data['serves']);
         $('#serves')[0].value = serves;
@@ -163,45 +164,45 @@ $(document).ready(function(){
         $('#prep-time') .html(data['time']['prep']);
         $('#cook-time') .html(data['time']['cook']);
         // icons
-        $('#tags').html(genicons(data['tags']));
+        $('#tags').html(genIcons(data['tags']));
         // images
-        $('#images').html(genimgs(data['images']));
+        $('#images').html(genImages(data['images']));
         // link
         $('#link').html('<a href="'+data['source']+'" target="_blank">source</a>');
         // ingredients
-        $('#ingredients').html(genitable(data['ingredients'],1,100));
+        $('#ingredients').html(genIngrTable(data['ingredients'],1,100));
         if (data['tags'].indexOf('vegan') == -1) {
           $('#vegan-msg').addClass('hidden');
         } else {
           $('#vegan-msg').removeClass('hidden');
         };
         // steps
-        $('#steps').html(genstable(data['steps'],data['ingredients'],1,100));
+        $('#steps').html(genStepTable(data['steps'],data['ingredients'],1,100));
         // listener: click-able table rows
-        rowclicks();
+        rowClicks();
         // listeners: change serving size
         $('#serves').change(function(e){
           var scale = parseFloat($(this)[0].value) / parseFloat(serves);
-          $('#ingredients').html(genitable(              data['ingredients'],scale,100));
-          $('#steps')      .html(genstable(data['steps'],data['ingredients'],scale,100));
-          rowclicks();
+          $('#ingredients').html(genIngrTable(              data['ingredients'],scale,100));
+          $('#steps')      .html(genStepTable(data['steps'],data['ingredients'],scale,100));
+          rowClicks();
         });
       });
     } else { // id is empty: load homepage
-      showhome(true);
+      showHome(true);
     };
     window.scrollTo(0, 0);
   };
   // build the navbar
   alltags = ['breakfast','snack','vegan','veggie','fish','meat','dessert','gluten-free'];
-  $('#navtags').html(genicons(alltags));
-  gennav();
-  filternav();
-  gengrid();
+  $('#navtags').html(genIcons(alltags));
+  genNav();
+  filterNav();
+  genGrid();
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
-    loadrecipe();
-    selectnav();
+    loadRecipe();
+    selectNav();
   });
   // listener: nav-item click -> change hash
   $(document).on('click','.nav-item',function(e){
@@ -221,7 +222,7 @@ $(document).ready(function(){
     } else {
       $(this).addClass('toggle-on')
     }
-    filternav();
+    filterNav();
   });
   // listener: collapse sections
   $('.collapse-button').click(function(e){
@@ -245,5 +246,5 @@ $(document).ready(function(){
     };
   });
   // load any initial recipe (silent js error if not found)
-  loadrecipe();
+  loadRecipe();
 });
