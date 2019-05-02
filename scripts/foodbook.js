@@ -100,22 +100,29 @@ $(document).ready(function(){
     }
     return str;
   }
-  function genCard(id,data){
-    str = htmlObject('div',
-            genImages(data.images,max=1)+
-            htmlObject('div',
+  function genCard(id){
+    return  htmlObject('div',
               htmlObject('div',
-                data.title,
-              'class="overlay"'),
-            'class="grid-item" id="grid-'+id+'"'),
-          'class="grid-container"');
-    return htmlObject('div',str,'class="col-xs-12 col-sm-4 col-md-6 col-lg-4"');
+                htmlObject('div',null,
+                'class="grid-img"')+
+                htmlObject('div',
+                  htmlObject('div',null,
+                  'class="overlay"'),
+                'class="grid-item"'),
+              'class="grid-container" id="card-'+id+'"'),
+            'class="col-xs-12 col-sm-4 col-md-6 col-lg-4"');
   }
   function genGrid(){
     return $.getJSON('list.json',function(list){
-      for (var i in list){(function(i){
+      grid = $('#grid');
+      for (var i in list){
+        grid.append(genCard(list[i]));
+      }
+      for (i in list){(function(i){
         $.getJSON(recipeFile(list[i]),function(data){
-          $('#grid').append(genCard(list[i],data));
+          card = $('#card-'+list[i]);
+          card.find('.grid-img').html(genImages(data.images));
+          card.find('.overlay').html(data.title);
         });
       })(i);}
     });
@@ -125,7 +132,7 @@ $(document).ready(function(){
       nav = $('#navtable');
       nav.html('');
       for (var i in list){
-        nav.append(tRow('',
+        nav.append(tRow(null,
           'class="nav-item"'+
           'id="nav-'+list[i]+'"'
         ));
@@ -213,8 +220,8 @@ $(document).ready(function(){
   $(document).on('click','.nav-item',function(e){
     window.location.hash = this.id.substr(4);
   });
-  // listener: grid-item click -> change hash
-  $(document).on('click','.grid-item',function(e){
+  // listener: grid-container click -> change hash
+  $(document).on('click','.grid-container',function(e){
     window.location.hash = this.id.substr(5);
   });
   // listener: nav-filter click -> cycle filters: on | off | neutral; filter nav-items
