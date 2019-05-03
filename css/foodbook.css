@@ -257,10 +257,7 @@ th, td {
 /*------------------------------------------------------------------------------
   home page cards
 ------------------------------------------------------------------------------*/
-.grid-container {
-  padding: 5px;
-}
-.grid-item {
+.card-item {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -270,7 +267,7 @@ th, td {
   vertical-align: middle;
   cursor: pointer;
 }
-.grid-item > .overlay {
+.card-item > .overlay {
   display: flex;
   width: 100%;
   height: 100%;
@@ -283,6 +280,9 @@ th, td {
   visibility: hidden;
   color: var(--c-text);
 }
-.grid-item:hover > .overlay {
+.card-item:hover > .overlay {
   visibility: visible;
+}
+.card-img {
+  margin: 5px;
 }

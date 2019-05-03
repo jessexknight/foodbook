@@ -102,29 +102,45 @@ $(document).ready(function(){
   }
   function genCard(id){
     return  htmlObject('div',
+              htmlObject('div',null,
+              'class="card-img"')+
               htmlObject('div',
                 htmlObject('div',null,
-                'class="grid-img"')+
-                htmlObject('div',
-                  htmlObject('div',null,
-                  'class="overlay"'),
-                'class="grid-item"'),
-              'class="grid-container" id="card-'+id+'"'),
-            'class="col-xs-12 col-sm-4 col-md-6 col-lg-4"');
+                'class="overlay"'),
+              'class="card-item"'),
+            'class="card-container col-xs-12 col-sm-4 col-md-6 col-lg-4"'+
+            'id="card-'+id+'"');
   }
-  function genGrid(){
+  function genCards(){
     return $.getJSON('list.json',function(list){
-      grid = $('#grid');
+      cards = $('#cards');
       for (var i in list){
-        grid.append(genCard(list[i]));
+        cards.append(genCard(list[i]));
       }
       for (i in list){(function(i){
         $.getJSON(recipeFile(list[i]),function(data){
           card = $('#card-'+list[i]);
-          card.find('.grid-img').html(genImages(data.images));
+          card.find('.card-img').html(genImages(data.images));
           card.find('.overlay').html(data.title);
+          card.attr('data-tags',data.tags);
         });
       })(i);}
+    });
+  }
+  function filterCards(){
+    var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
+    var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
+    $.getJSON('list.json',function(list){
+      for (var i in list){
+        card = $('#card-'+list[i]);
+        tags = card.attr('data-tags').split(',');
+        if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
+           !(tags.some(function(tag) { return tagsOff.includes(tag); }))){
+          card.removeClass('hidden');
+        } else {
+          card.addClass('hidden');
+        }
+      }
     });
   }
   function genNav(){
@@ -149,7 +165,7 @@ $(document).ready(function(){
   function filterNav(){
     var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
     var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
-    $.getJSON('list.json',function(list){
+    $.getJSON('list.json',function(list){ // TODO: don't need to load JSON; iterate through nav
       for (var i in list){
         navrow = $('#nav-'+list[i]);
         tags = navrow.attr('data-tags').split(',');
@@ -210,7 +226,7 @@ $(document).ready(function(){
   alltags = ['breakfast','snack','vegan','veggie','fish','meat','dessert','gluten-free'];
   $('#navtags').html(genIcons(alltags));
   genNav();
-  genGrid();
+  genCards();
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
     loadRecipe();
@@ -220,8 +236,8 @@ $(document).ready(function(){
   $(document).on('click','.nav-item',function(e){
     window.location.hash = this.id.substr(4);
   });
-  // listener: grid-container click -> change hash
-  $(document).on('click','.grid-container',function(e){
+  // listener: card-container click -> change hash
+  $(document).on('click','.card-container',function(e){
     window.location.hash = this.id.substr(5);
   });
   // listener: nav-filter click -> cycle filters: on | off | neutral; filter nav-items
@@ -235,6 +251,7 @@ $(document).ready(function(){
       $(this).addClass('toggle-on');
     }
     filterNav();
+    filterCards();
   });
   // listener: collapse sections
   $('.collapse-button').click(function(e){
