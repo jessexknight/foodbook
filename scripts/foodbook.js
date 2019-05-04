@@ -106,10 +106,10 @@ $(document).ready(function(){
   }
   function genCard(id){
     return  htmlObject('div',
-              htmlObject('div',null,
+              htmlObject('div','',
               'class="card-img"')+
               htmlObject('div',
-                htmlObject('div',null,
+                htmlObject('div','',
                 'class="overlay"'),
               'class="card-item"'),
             'class="card-container col-xs-12 col-sm-4 col-md-6 col-lg-4"'+
@@ -137,7 +137,7 @@ $(document).ready(function(){
     nav = $('#navtable');
     nav.html('');
     for (var i in recipes){
-      nav.append(tRow(null,
+      nav.append(tRow('',
         'class="nav-item"'+
         'id="nav-'+recipes[i]+'"'
       ));
