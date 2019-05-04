@@ -59,8 +59,8 @@ $(document).ready(function(){
     str = '';
     for (var t in tags){
       str += '<div class="nav-filter icon-div '+tags[t]+' tip" id="'+tags[t]+'">'+
-             '<img class="icon" src="icon/tags/'+tags[t]+'.png"/>'+
-             '<span class="tiptext">'+tags[t]+'</span>'+
+               '<img class="icon" src="icon/tags/'+tags[t]+'.png"/>'+
+               '<span class="tiptext">'+tags[t]+'</span>'+
              '</div>';
     }
     return str;
@@ -120,14 +120,6 @@ $(document).ready(function(){
     for (var i in recipes){
       cards.append(genCard(recipes[i]));
     }
-    for (i in recipes){(function(i){
-      $.getJSON(recipeFile(recipes[i]),function(data){
-        card = $('#card-'+recipes[i]);
-        card.find('.card-img').html(genImages(data.images));
-        card.find('.overlay').html(data.title);
-        card.attr('data-tags',data.tags);
-      });
-    })(i);}
   }
   function filterCards(){
     for (var i in recipes){
@@ -150,13 +142,6 @@ $(document).ready(function(){
         'id="nav-'+recipes[i]+'"'
       ));
     }
-    for (i in recipes){(function(i){
-      $.getJSON(recipeFile(recipes[i]),function(data){
-        navrow = $('#nav-'+recipes[i]);
-        navrow.html(tCell(data.title));
-        navrow.attr('data-tags',data.tags);
-      });
-    })(i);}
   }
   function filterNav(){
     for (var i in recipes){
@@ -169,6 +154,19 @@ $(document).ready(function(){
         navrow.addClass('hidden');
       }
     }
+  }
+  function loadNavData(){
+    $.each(recipes, function(i,id){
+      $.getJSON(recipeFile(id),function(data){
+        navrow = $('#nav-'+id);
+        navrow.html(tCell(data.title));
+        navrow.attr('data-tags',data.tags);
+        card = $('#card-'+id);
+        card.find('.card-img').html(genImages(data.images));
+        card.find('.overlay').html(data.title);
+        card.attr('data-tags',data.tags);
+      });
+    });
   }
   function loadRecipe(){
     var id = window.location.hash.substr(1);
@@ -246,6 +244,7 @@ $(document).ready(function(){
   $('#navtags').html(genIcons(alltags));
   genNav();
   genCards();
+  loadNavData();
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
     loadRecipe();
