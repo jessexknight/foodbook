@@ -188,7 +188,7 @@ $(document).ready(function(){
     }
   }
   function filterCards(){
-    for (var i in recipeIds){
+    $.each(recipeIds, function(i,id){
       card = $('#card-'+recipeIds[i]);
       tags = card.attr('data-tags').split(',');
       if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
@@ -197,7 +197,7 @@ $(document).ready(function(){
       } else {
         card.addClass('hidden');
       }
-    }
+    });
   }
   function genNav(){
     nav = $('#navtable');
@@ -210,7 +210,7 @@ $(document).ready(function(){
     }
   }
   function filterNav(){
-    for (var i in recipeIds){
+    $.each(recipeIds, function(i,id){
       navrow = $('#nav-'+recipeIds[i]);
       tags = navrow.attr('data-tags').split(',');
       if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
@@ -219,7 +219,7 @@ $(document).ready(function(){
       } else {
         navrow.addClass('hidden');
       }
-    }
+    });
   }
   function loadNavData(){
     $.each(recipeIds, function(i,id){
