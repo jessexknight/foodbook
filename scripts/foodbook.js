@@ -1,4 +1,14 @@
 $(document).ready(function(){
+  tagsOn    = [];
+  tagsOff   = [];
+  recipes   = [];
+  alltags   = [];
+  $.when(
+    $.getJSON('recipes.json'),
+    $.getJSON('tags.json')
+  ).done(function(recipesReq,alltagsReq){
+    recipes = recipesReq[0];
+    alltags = alltagsReq[0];
   function showHome(home){
     if (home){
       $('#home').removeClass('hidden');
@@ -213,38 +223,10 @@ $(document).ready(function(){
     window.scrollTo(0, 0);
   }
   // build the navbar
-  recipes = [
-    "oatmeal-pancakes",
-    "protein-bars",
-    "quinoa-beet-salad",
-    "tofu-kale-bowl",
-    "broccoli-quiche",
-    "lentil-soup",
-    "enchilada-casserole",
-    "veggie-lasagna",
-    "stuffed-peppers",
-    "veggie-burgers",
-    "fish-tacos",
-    "salmon-burgers",
-    "greek-chicken",
-    "chocolate-chip-cookies",
-  ];
-  alltags = [
-    'breakfast',
-    'snack',
-    'vegan',
-    'veggie',
-    'fish',
-    'meat',
-    'dessert',
-    'gluten-free',
-  ];
-  tagsOn  = [];
-  tagsOff = [];
-  $('#navtags').html(genIcons(alltags));
   genNav();
   genCards();
   loadNavData();
+  $('#navtags').html(genIcons(alltags));
   // listener: change hash -> load recipe
   $(window).on('hashchange',function(e){
     loadRecipe();
@@ -295,4 +277,5 @@ $(document).ready(function(){
   });
   // load any initial recipe (silent js error if not found)
   loadRecipe();
+});
 });
