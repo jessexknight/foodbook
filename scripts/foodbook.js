@@ -59,7 +59,7 @@ $(document).ready(function(){
     str = '';
     for (var t in tags){
       str += '<div class="nav-filter icon-div '+tags[t]+' tip" id="'+tags[t]+'">'+
-             '<img class="icon" src="icon/'+tags[t]+'.png"/>'+
+             '<img class="icon" src="icon/tags/'+tags[t]+'.png"/>'+
              '<span class="tiptext">'+tags[t]+'</span>'+
              '</div>';
     }
