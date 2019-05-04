@@ -1,14 +1,70 @@
 $(document).ready(function(){
   tagsOn    = [];
   tagsOff   = [];
-  recipes   = [];
-  alltags   = [];
+  recipeIds = [];
+  tagIds    = [];
   $.when(
     $.getJSON('recipes.json'),
     $.getJSON('tags.json')
-  ).done(function(recipesReq,alltagsReq){
-    recipes = recipesReq[0];
-    alltags = alltagsReq[0];
+  ).done(function(recipeIdsReq,tagIdsReq){
+    recipeIds = recipeIdsReq[0];
+    tagIds    = tagIdsReq[0];
+    // build the navbar & home page cards
+    genNav();
+    genCards();
+    loadNavData();
+    $('#navtags').html(genIcons(tagIds));
+    // listener: change hash -> load recipe
+    $(window).on('hashchange',function(e){
+      loadRecipe();
+      selectNav();
+    });
+    // listener: nav-item click -> change hash
+    $(document).on('click','.nav-item',function(e){
+      window.location.hash = this.id.substr(4);
+    });
+    // listener: card-container click -> change hash
+    $(document).on('click','.card-container',function(e){
+      window.location.hash = this.id.substr(5);
+    });
+    // listener: nav-filter click -> cycle filters: on | off | neutral; filter nav-items
+    $(document).on('click','.nav-filter',function(e){
+      if ($(this).hasClass('toggle-on')) {
+        $(this).removeClass('toggle-on');
+        $(this).addClass('toggle-off');
+      } else if ($(this).hasClass('toggle-off')) {
+        $(this).removeClass('toggle-off');
+      } else {
+        $(this).addClass('toggle-on');
+      }
+      updateFilters();
+      filterNav();
+      filterCards();
+    });
+    // listener: collapse sections
+    $('.collapse-button').click(function(e){
+      $(this).toggleClass('closed');
+      $(this).next('.collapse-content').toggleClass('hidden');
+    });
+    // listener: home page
+    $('#home-link').click(function(e){
+      window.location.hash = '';
+    });
+    // listener: dark / light mode
+    $('#dark-light').click(function(e){
+      $('body').toggleClass('dark');
+      $('body').toggleClass('light');
+      if ($('body').hasClass('dark')){
+        $('#dark-light-img').attr('src','icon/light.png');
+        $('#dark-light-tip').html('light mode');
+      } else if ($('body').hasClass('light')){
+        $('#dark-light-img').attr('src','icon/dark.png');
+        $('#dark-light-tip').html('dark mode');
+      }
+    });
+    // load any initial recipe (silent js error if not found)
+    loadRecipe();
+  });
   function showHome(home){
     if (home){
       $('#home').removeClass('hidden');
@@ -127,13 +183,13 @@ $(document).ready(function(){
   }
   function genCards(){
     cards = $('#cards');
-    for (var i in recipes){
-      cards.append(genCard(recipes[i]));
+    for (var i in recipeIds){
+      cards.append(genCard(recipeIds[i]));
     }
   }
   function filterCards(){
-    for (var i in recipes){
-      card = $('#card-'+recipes[i]);
+    for (var i in recipeIds){
+      card = $('#card-'+recipeIds[i]);
       tags = card.attr('data-tags').split(',');
       if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
          !(tags.some(function(tag) { return tagsOff.includes(tag); }))){
@@ -146,16 +202,16 @@ $(document).ready(function(){
   function genNav(){
     nav = $('#navtable');
     nav.html('');
-    for (var i in recipes){
+    for (var i in recipeIds){
       nav.append(tRow('',
         'class="nav-item"'+
-        'id="nav-'+recipes[i]+'"'
+        'id="nav-'+recipeIds[i]+'"'
       ));
     }
   }
   function filterNav(){
-    for (var i in recipes){
-      navrow = $('#nav-'+recipes[i]);
+    for (var i in recipeIds){
+      navrow = $('#nav-'+recipeIds[i]);
       tags = navrow.attr('data-tags').split(',');
       if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
          !(tags.some(function(tag) { return tagsOff.includes(tag); }))){
@@ -166,7 +222,7 @@ $(document).ready(function(){
     }
   }
   function loadNavData(){
-    $.each(recipes, function(i,id){
+    $.each(recipeIds, function(i,id){
       $.getJSON(recipeFile(id),function(data){
         navrow = $('#nav-'+id);
         navrow.html(tCell(data.title));
@@ -222,60 +278,4 @@ $(document).ready(function(){
     }
     window.scrollTo(0, 0);
   }
-  // build the navbar
-  genNav();
-  genCards();
-  loadNavData();
-  $('#navtags').html(genIcons(alltags));
-  // listener: change hash -> load recipe
-  $(window).on('hashchange',function(e){
-    loadRecipe();
-    selectNav();
-  });
-  // listener: nav-item click -> change hash
-  $(document).on('click','.nav-item',function(e){
-    window.location.hash = this.id.substr(4);
-  });
-  // listener: card-container click -> change hash
-  $(document).on('click','.card-container',function(e){
-    window.location.hash = this.id.substr(5);
-  });
-  // listener: nav-filter click -> cycle filters: on | off | neutral; filter nav-items
-  $(document).on('click','.nav-filter',function(e){
-    if ($(this).hasClass('toggle-on')) {
-      $(this).removeClass('toggle-on');
-      $(this).addClass('toggle-off');
-    } else if ($(this).hasClass('toggle-off')) {
-      $(this).removeClass('toggle-off');
-    } else {
-      $(this).addClass('toggle-on');
-    }
-    updateFilters();
-    filterNav();
-    filterCards();
-  });
-  // listener: collapse sections
-  $('.collapse-button').click(function(e){
-    $(this).toggleClass('closed');
-    $(this).next('.collapse-content').toggleClass('hidden');
-  });
-  // listener: home page
-  $('#home-link').click(function(e){
-    window.location.hash = '';
-  });
-  // listener: dark / light mode
-  $('#dark-light').click(function(e){
-    $('body').toggleClass('dark');
-    $('body').toggleClass('light');
-    if ($('body').hasClass('dark')){
-      $('#dark-light-img').attr('src','icon/light.png');
-      $('#dark-light-tip').html('light mode');
-    } else if ($('body').hasClass('light')){
-      $('#dark-light-img').attr('src','icon/dark.png');
-      $('#dark-light-tip').html('dark mode');
-    }
-  });
-  // load any initial recipe (silent js error if not found)
-  loadRecipe();
-});
 });
