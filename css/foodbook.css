@@ -52,7 +52,12 @@ h1 {
   background-color: var(--c-borders);
 }
 #navtags {
+  padding-top: 20px;
   padding-bottom: 20px;
+}
+#extras {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 #extras .icon-div {
   cursor: pointer;
@@ -239,7 +244,7 @@ th, td {
 #navtags .icon-div.toggle-off img {
   opacity: 0.5;
 }
-#tags, #extras {
+#tags {
   margin-bottom: 40px;
 }
 #tags .icon-div {
