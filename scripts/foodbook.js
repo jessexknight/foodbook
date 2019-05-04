@@ -100,6 +100,10 @@ $(document).ready(function(){
     }
     return str;
   }
+  function updateFilters(){
+    tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
+    tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
+  }
   function genCard(id){
     return  htmlObject('div',
               htmlObject('div',null,
@@ -112,71 +116,59 @@ $(document).ready(function(){
             'id="card-'+id+'"');
   }
   function genCards(){
-    return $.getJSON('list.json',function(list){
-      cards = $('#cards');
-      for (var i in list){
-        cards.append(genCard(list[i]));
-      }
-      for (i in list){(function(i){
-        $.getJSON(recipeFile(list[i]),function(data){
-          card = $('#card-'+list[i]);
-          card.find('.card-img').html(genImages(data.images));
-          card.find('.overlay').html(data.title);
-          card.attr('data-tags',data.tags);
-        });
-      })(i);}
-    });
+    cards = $('#cards');
+    for (var i in recipes){
+      cards.append(genCard(recipes[i]));
+    }
+    for (i in recipes){(function(i){
+      $.getJSON(recipeFile(recipes[i]),function(data){
+        card = $('#card-'+recipes[i]);
+        card.find('.card-img').html(genImages(data.images));
+        card.find('.overlay').html(data.title);
+        card.attr('data-tags',data.tags);
+      });
+    })(i);}
   }
   function filterCards(){
-    var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
-    var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
-    $.getJSON('list.json',function(list){
-      for (var i in list){
-        card = $('#card-'+list[i]);
-        tags = card.attr('data-tags').split(',');
-        if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
-           !(tags.some(function(tag) { return tagsOff.includes(tag); }))){
-          card.removeClass('hidden');
-        } else {
-          card.addClass('hidden');
-        }
+    for (var i in recipes){
+      card = $('#card-'+recipes[i]);
+      tags = card.attr('data-tags').split(',');
+      if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
+         !(tags.some(function(tag) { return tagsOff.includes(tag); }))){
+        card.removeClass('hidden');
+      } else {
+        card.addClass('hidden');
       }
-    });
+    }
   }
   function genNav(){
-    return $.getJSON('list.json',function(list){
-      nav = $('#navtable');
-      nav.html('');
-      for (var i in list){
-        nav.append(tRow(null,
-          'class="nav-item"'+
-          'id="nav-'+list[i]+'"'
-        ));
-      }
-      for (i in list){(function(i){
-        $.getJSON(recipeFile(list[i]),function(data){
-          navrow = $('#nav-'+list[i]);
-          navrow.html(tCell(data.title));
-          navrow.attr('data-tags',data.tags);
-        });
-      })(i);}
-    });
+    nav = $('#navtable');
+    nav.html('');
+    for (var i in recipes){
+      nav.append(tRow(null,
+        'class="nav-item"'+
+        'id="nav-'+recipes[i]+'"'
+      ));
+    }
+    for (i in recipes){(function(i){
+      $.getJSON(recipeFile(recipes[i]),function(data){
+        navrow = $('#nav-'+recipes[i]);
+        navrow.html(tCell(data.title));
+        navrow.attr('data-tags',data.tags);
+      });
+    })(i);}
   }
   function filterNav(){
-    var tagsOn  = Array.from($('#navtags .nav-filter.toggle-on' ),function(o){ return o.id; });
-    var tagsOff = Array.from($('#navtags .nav-filter.toggle-off'),function(o){ return o.id; });
-    $.getJSON('list.json',function(list){ // TODO: don't need to load JSON; iterate through nav
-      for (var i in list){
-        navrow = $('#nav-'+list[i]);
-        tags = navrow.attr('data-tags').split(',');
-        if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
-           !(tags.some(function(tag) { return tagsOff.includes(tag); }))){
-          navrow.removeClass('hidden');
-        } else {
-          navrow.addClass('hidden');
-        }
+    for (var i in recipes){
+      navrow = $('#nav-'+recipes[i]);
+      tags = navrow.attr('data-tags').split(',');
+      if ((tagsOn.every(function(tag){ return tags.includes(tag); })) &&
+         !(tags.some(function(tag) { return tagsOff.includes(tag); }))){
+        navrow.removeClass('hidden');
+      } else {
+        navrow.addClass('hidden');
       }
-    });
+    }
   }
   function loadRecipe(){
     var id = window.location.hash.substr(1);
@@ -223,7 +215,34 @@ $(document).ready(function(){
     window.scrollTo(0, 0);
   }
   // build the navbar
-  alltags = ['breakfast','snack','vegan','veggie','fish','meat','dessert','gluten-free'];
+  recipes = [
+    "oatmeal-pancakes",
+    "protein-bars",
+    "quinoa-beet-salad",
+    "tofu-kale-bowl",
+    "broccoli-quiche",
+    "lentil-soup",
+    "enchilada-casserole",
+    "veggie-lasagna",
+    "stuffed-peppers",
+    "veggie-burgers",
+    "fish-tacos",
+    "salmon-burgers",
+    "greek-chicken",
+    "chocolate-chip-cookies",
+  ];
+  alltags = [
+    'breakfast',
+    'snack',
+    'vegan',
+    'veggie',
+    'fish',
+    'meat',
+    'dessert',
+    'gluten-free',
+  ];
+  tagsOn  = [];
+  tagsOff = [];
   $('#navtags').html(genIcons(alltags));
   genNav();
   genCards();
@@ -250,6 +269,7 @@ $(document).ready(function(){
     } else {
       $(this).addClass('toggle-on');
     }
+    updateFilters();
     filterNav();
     filterCards();
   });
