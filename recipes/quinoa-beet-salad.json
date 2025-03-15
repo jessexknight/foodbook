@@ -1,0 +1,30 @@
+{
+  "title": "Quinoa Beet Salad",
+  "time": {
+    "prep": "15",
+    "cook": "45"
+  },
+  "serves": "3",
+  "ingrs": {
+    "beets; raw, peeled, 1cm chunks": "3",
+    "carrots; raw, peeled, 1cm chunks": "3",
+    "quinoa; uncooked": "1 C",
+    "vegetable broth": "2 C",
+    "kale; chopped": "3 C",
+    "green onions; chopped": "2",
+    "Dijon mustard": "1 t",
+    "red wine vinegar": "3 T",
+    "olive oil": "0.25 C"
+  },
+  "steps": [
+    "Preheat oven to 400 F.",
+    "In a large bowl, toss beets and carrots in 1 t red wine vinegar and 2 t olive oil.",
+    "In a large baking tray, bake beets and carrots for 45 minutes. Stir half-way through cooking.",
+    "Combine vegetable broth and quinoa. Bring to a boil uncovered, then  cover and simmer until quinoa is cooked, about 20 minutes.",
+    "Make the dressing: combine Dijon mustard, remaining red wine vinegar and olive oil.",
+    "Combine cooked quinoa, chopped kale, and baked beets and carrots. Pour dressing over salad."
+  ],
+  "tags": ["vegan","vegetarian","gluten-free"],
+  "image": "quinoa-beet-salad.jpg",
+  "source": "http://www.wholelivinglauren.com/new-blog/2015/4/13/quinoa-salad-with-roasted-beet-and-carrot"
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Kale Fiesta Salad",
+  "time": {
+    "prep": "20",
+    "cook": "5"
+  },
+  "serves": "6",
+  "ingrs": {
+    "kale; ripped": "1 bunch",
+    "black beans; drained": "1 C",
+    "cranberries; dried": "1 C",
+    "feta cheese": "200 g",
+    "pumpkin seeds; toasted": "0.5 C",
+    "tortilla chips; crumbled": "3 C",
+    "olive oil": "3 T",
+    "lime juice": "2 limes",
+    "jalapenos; diced": "2",
+    "honey": "1 t",
+    "cumin": "0.5 t",
+    "coriander": "0.25 t",
+    "salt": "0.5 t"
+  },
+  "steps": [
+    "For the dressing, combine olive oil, lime juice, diced jalapenos, honey, cumin, coriander, and salt. Shake well.",
+    "Dress the kale, and top with black beans, cranberries, feta cheese, toasted pumpkin seeds, and crumbled tortilla chips."
+  ],
+  "tags": ["gluten-free","vegetarian"],
+  "image": "kale-fiesta.jpg",
+  "source": "https://web.archive.org/web/20231214033919/https://cookieandkate.com/feta-fiesta-kale-salad-with-avocado-and-crispy-tortilla-strips/"
+}

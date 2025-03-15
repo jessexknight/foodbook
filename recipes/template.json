@@ -1,0 +1,20 @@
+{
+  "title": "A Food",
+  "time": {
+    "prep": "5",
+    "cook": "15"
+  },
+  "serves": "1",
+  "ingrs": {
+    "ingredient": "1 C",
+    "ingredient; specification": "3"
+  },
+  "steps": [
+    "Step 1",
+    "Step 2",
+    "Step 3"
+  ],
+  "tags": ["breakfast","snack","gluten-free","vegan","vegetarian","fish","dessert"],
+  "image": "",
+  "source": "#"
+}

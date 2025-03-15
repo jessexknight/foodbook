@@ -1,0 +1,34 @@
+{
+  "title": "Chickpeak \"Chicken Salad\" Sandwiches",
+  "time": {
+    "prep": "15",
+    "cook": "5"
+  },
+  "serves": "3",
+  "ingrs": {
+    "chickpeas; drained": "1 C",
+    "sunflower seeds; salted": "0.25 C",
+    "onion; red diced": "0.25",
+    "tahini": "3 T",
+    "Dijon mustard": "0.5 t",
+    "maple syrup": "1 T",
+    "dill": "2.5 T",
+    "hummus": "0.25 C",
+    "lemon juice": "1 T",
+    "garlic; minced": "2 cloves",
+    "soy milk": "2 T",
+    "bread; rustic": "6 slices",
+    "apple; sliced thin": "1",
+    "spinach; baby": "150 g"
+  },
+  "steps": [
+    "Create the sauce: combine hummus, lemon juice, garlic, soy milk, and 0.5 T dill.",
+    "In a large bowl, mash chickpeas in a large bowl for texture.",
+    "To make the filling, add to the chickpeas: sunflower seeds, onion, tahini, Dijon mustard, maple syrup, and remaining dill.",
+    "Toast the bread.",
+    "Slather the sauce on one slice of bread. On the other, layer the filling, spinach, apple slices, and the first slice."
+  ],
+  "tags": ["vegan","vegetarian"],
+  "image": "chickpea-sandwiches.jpg",
+  "source": "https://minimalistbaker.com/chickpea-sunflower-sandwich/"
+}

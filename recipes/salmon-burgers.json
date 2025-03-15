@@ -1,0 +1,31 @@
+{
+  "title": "Salmon Burgers",
+  "time": {
+    "prep": "10",
+    "cook": "10"
+  },
+  "serves": "2",
+  "ingrs": {
+    "oil; cooking": "1 T",
+    "salmon; cans, drained, de-boned": "1",
+    "eggs": "1",
+    "bread crumbs": "0.25 C",
+    "onion; chopped fine": "2 T",
+    "parsley; chopped fine": "0.25 C",
+    "chili powder": "1 t",
+    "burger buns": "2",
+    "Greek yogurt": "0.25 C",
+    "Sriracha sauce": "1 t",
+    "toppings; lettuce, etc.": "2"
+  },
+  "steps": [
+    "In a medium bowl, flake salmon and mix with eggs, bread crumbs, onion, parsley, and chili powder.",
+    "Heat the oil in a large skillet over medium heat.",
+    "Pack the mixture into patties, and fry for about 5 minutes per side.",
+    "Mix the Sriracha sauce and Greek yogurt to make the spicey mayo.",
+    "Top burger buns with cooked patties, spicey mayo, and other toppings."
+  ],
+  "tags": ["fish"],
+  "image": "salmon-burgers.jpg",
+  "source": "https://www.allrecipes.com/recipe/81506/yummy-lemon-salmon-burgers/"
+}

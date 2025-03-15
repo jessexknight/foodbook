@@ -1,0 +1,36 @@
+{
+  "title": "Veggie Burgers",
+  "time": {
+    "prep": "30",
+    "cook": "10"
+  },
+  "serves": "5",
+  "ingrs": {
+    "oil; cooking" : "1 T",
+    "brown rice; cooked": "1 C",
+    "walnuts; sub bread crumbs": "1 C",
+    "onion; white, diced" : "0.5",
+    "black beans; drained" : "1.5 C",
+    "bread crumbs" : "0.33333 C",
+    "BBQ sauce" : "3 T",
+    "chili powder" : "1 T",
+    "cumin" : "1 T",
+    "paprika" : "1 T",
+    "brown sugar" : "1 T",
+    "salt" : "0.5 t",
+    "black pepper" : "0.5 t"
+  },
+  "steps": [
+    "Start cooking the brown rice.",
+    "In a skillet over medium heat, toast walnuts for 5-7 minutes. Set aside.",
+    "Heat half the oil over medium heat in the same skillet. Sauté onion for 4 minutes. Set aside.",
+    "Blend cooled walnuts with chili powder, cumin, paprika, salt, black pepper, and brown sugar. Set aside.",
+    "Mash cooked black beans to a paste.",
+    "Combine cooked brown rice, walnut-spice mixture, sautéed onion, mashed black beans, bread crumbs, and BBQ sauce. Mix well.",
+    "Heat the other half of the oil over medium heat in the same skillet. Divide mixture into 5 patties and place on skillet.",
+    "Cook 3-4 minutes per side, flipping gently."
+  ],
+  "tags": ["vegan","vegetarian"],
+  "image": "veggie-burgers.jpg",
+  "source": "https://minimalistbaker.com/easy-grillable-veggie-burgers/"
+}

@@ -1,0 +1,22 @@
+{
+  "title": "Peanut Butter Protein Balls",
+  "time": {
+    "prep": "10",
+    "cook": "0"
+  },
+  "serves": "5",
+  "ingrs": {
+    "peanut butter; crunchy": "2 C",
+    "protein powder; chocolate *": "0.5 C",
+    "oats; rolled" :"1 C",
+    "trail mix; nuts and raisins": "1 C",
+    "honey; to taste": "0.25 C"
+  },
+  "steps": [
+    "Combine all ingredients together. Mix thoroughly.",
+    "Roll into 1 inch balls (about 20) and cool in the fridge."
+  ],
+  "tags": ["snack","vegan","vegetarian","gluten-free"],
+  "image": "protein-balls.jpg",
+  "source": "https://www.yummymummykitchen.com/2017/10/trail-mix-peanut-butter-energy-balls.html"
+}

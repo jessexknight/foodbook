@@ -1,0 +1,31 @@
+{
+  "title": "Veggie Lasagna",
+  "time": {
+    "prep": "30",
+    "cook": "60"
+  },
+  "serves": "8",
+  "ingrs": {
+    "noodles; oven-ready": "400 g",
+    "tomatoe sauce": "3 C",
+    "oil; cooking": "1 T",
+    "broccoli; heads chopped": "2",
+    "onion; yellow chopped": "0.5",
+    "red peppers; chopped": "1",
+    "ricotta cheese": "500 g",
+    "cheddar cheese; shredded": "1 C",
+    "eggs": "2"
+  },
+  "steps": [
+    "Pre-heat oven to 375 F.",
+    "Heat the oil in a large skillet over medium heat, then sauté the broccoli, onion, and red peppers for 5 minutes.",
+    "Add the tomatoe sauce and cook another 5 minutes.",
+    "In a large bowl, mix together ricotta cheese, cheddar cheese, and eggs.",
+    "In two 9 x 13 inch greased casserole dishes, repeat 3 layers of: (1/6) of the sauce-veggies mixture, 2-3 noodles, (1/6) of the cheese mixture.",
+    "Optional: top with a thin layer of tomatoe sauce and cheddar cheese.",
+    "Bake for 45 minutes."
+  ],
+  "tags": ["vegetarian"],
+  "image": "veggie-lasagna.jpg",
+  "source": "#veggie-lasagna"
+}
