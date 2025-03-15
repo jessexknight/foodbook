@@ -24,6 +24,7 @@ $(document).ready(function(){
       }
       window.scrollTo(0,0)
     }
+    $('#copy').on('click',copy)
     $('#search').on('keypress',query)
     $(window).on('hashchange',reload)
   })
