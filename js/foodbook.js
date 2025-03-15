@@ -27,6 +27,7 @@ $(document).ready(function(){
     $('#copy').on('click',copy)
     $('#search').on('keypress',query)
     $(window).on('hashchange',reload)
+    reload()
   })
 })
 // home ---------------------------------------------------
