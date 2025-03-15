@@ -1,0 +1,430 @@
+[
+ {
+  "id": "veggie-lasagna",
+  "title": "Veggie Lasagna",
+  "time": {
+   "prep": "30",
+   "cook": "60"
+  },
+  "serves": "8",
+  "ingrs": {
+   "noodles; oven-ready": "400 g",
+   "tomatoe sauce": "3 C",
+   "oil; cooking": "1 T",
+   "broccoli; heads chopped": "2",
+   "onion; yellow chopped": "0.5",
+   "red peppers; chopped": "1",
+   "ricotta cheese": "500 g",
+   "cheddar cheese; shredded": "1 C",
+   "eggs": "2"
+  },
+  "steps": [
+   "Pre-heat oven to 375 F.",
+   "Heat the oil in a large skillet over medium heat, then saut\u00e9 the broccoli, onion, and red peppers for 5 minutes.",
+   "Add the tomatoe sauce and cook another 5 minutes.",
+   "In a large bowl, mix together ricotta cheese, cheddar cheese, and eggs.",
+   "In two 9 x 13 inch greased casserole dishes, repeat 3 layers of: (1/6) of the sauce-veggies mixture, 2-3 noodles, (1/6) of the cheese mixture.",
+   "Optional: top with a thin layer of tomatoe sauce and cheddar cheese.",
+   "Bake for 45 minutes."
+  ],
+  "tags": [
+   "vegetarian"
+  ],
+  "image": "veggie-lasagna.jpg",
+  "source": "#veggie-lasagna"
+ },
+ {
+  "id": "chocolate-chip-cookies",
+  "title": "Chocolate Chip Cookies",
+  "time": {
+   "prep": "15",
+   "cook": "20"
+  },
+  "serves": "15",
+  "ingrs": {
+   "butter; unsalted, melted": "1 C",
+   "brown sugar": "1.25 C",
+   "white sugar": "0.5 C",
+   "eggs": "2",
+   "vanilla extract": "1.5 t",
+   "flour; all-purpose": "2.75",
+   "cornstarch": "2 t",
+   "baking soda": "1 t",
+   "salt": "0.75 t",
+   "chocolate chips; semisweet": "1.75 C"
+  },
+  "steps": [
+   "In a large bowl, combine butter, brown sugar, white sugar, eggs, and vanilla extract. Stir very well.",
+   "In a medium bowl, combine flour, cornstarch, baking soda, and salt.",
+   "Add the dry ingredients to the wet ingredients. Mix very well, then add the chocolate chips.",
+   "Chill dough in refrigerator for 30 minutes.",
+   "Pre-heat oven to 350 F.",
+   "On parchment-lined cookie pans, scoop dough into 1.5 T blobs, about 5 cm apart.",
+   "Bake for 11 minutes, then remove to cool and continue solidifying for another 10."
+  ],
+  "tags": [
+   "dessert"
+  ],
+  "image": "chocolate-chip-cookies.jpg",
+  "source": "https://www.spendwithpennies.com/perfect-chocolate-chip-cookies/"
+ },
+ {
+  "id": "quinoa-beet-salad",
+  "title": "Quinoa Beet Salad",
+  "time": {
+   "prep": "15",
+   "cook": "45"
+  },
+  "serves": "3",
+  "ingrs": {
+   "beets; raw, peeled, 1cm chunks": "3",
+   "carrots; raw, peeled, 1cm chunks": "3",
+   "quinoa; uncooked": "1 C",
+   "vegetable broth": "2 C",
+   "kale; chopped": "3 C",
+   "green onions; chopped": "2",
+   "Dijon mustard": "1 t",
+   "red wine vinegar": "3 T",
+   "olive oil": "0.25 C"
+  },
+  "steps": [
+   "Preheat oven to 400 F.",
+   "In a large bowl, toss beets and carrots in 1 t red wine vinegar and 2 t olive oil.",
+   "In a large baking tray, bake beets and carrots for 45 minutes. Stir half-way through cooking.",
+   "Combine vegetable broth and quinoa. Bring to a boil uncovered, then  cover and simmer until quinoa is cooked, about 20 minutes.",
+   "Make the dressing: combine Dijon mustard, remaining red wine vinegar and olive oil.",
+   "Combine cooked quinoa, chopped kale, and baked beets and carrots. Pour dressing over salad."
+  ],
+  "tags": [
+   "vegan",
+   "vegetarian",
+   "gluten-free"
+  ],
+  "image": "quinoa-beet-salad.jpg",
+  "source": "http://www.wholelivinglauren.com/new-blog/2015/4/13/quinoa-salad-with-roasted-beet-and-carrot"
+ },
+ {
+  "id": "lentil-soup",
+  "title": "Coconut Curry Lentil Soup",
+  "time": {
+   "prep": "10",
+   "cook": "20"
+  },
+  "serves": "4",
+  "ingrs": {
+   "onion; yellow chopped": "1",
+   "garlic; minced": "2 cloves",
+   "lentils; red split, uncooked": "1.5 C",
+   "vegetable stock": "2 C",
+   "coconut milk": "1.5 C",
+   "diced tomatoes": "1.5 C",
+   "curry powder": "1 t",
+   "cayenne": "0.5 t",
+   "turmeric": "0.5 t",
+   "ginger": "0.5 t",
+   "salt": "1 t"
+  },
+  "steps": [
+   "In a large pot over medium heat, saut\u00e9 onion and garlic for 5 minutes.",
+   "Add lentils and stir for about 1 minute.",
+   "Add remaining ingredients and increase heat to high.",
+   "After the soup comes to a boil, reduce heat to low and simmer for 12 minutes.",
+   "In a fry pan over medium-low heat, toast almonds until they just begin to brown. Remove from heat immediately.",
+   "Garnish soup with almonds and serve."
+  ],
+  "tags": [
+   "vegan",
+   "vegetarian",
+   "gluten-free"
+  ],
+  "image": "lentil-soup.jpg",
+  "source": "http://orchardstreetkitchen.com/coconut-curry-lentil-soup/"
+ },
+ {
+  "id": "stuffed-peppers",
+  "title": "Cous-Cous Stuffed Peppers",
+  "time": {
+   "prep": "15",
+   "cook": "20"
+  },
+  "serves": "6",
+  "ingrs": {
+   "oil; cooking": "1 T",
+   "peppers; sweet": "6",
+   "cous-cous": "0.75 C",
+   "broth; vegetable": "1 C",
+   "salt": "1 t",
+   "lemon juice": "2 T",
+   "garlic; minced": "1 T",
+   "curry powder": "1 t",
+   "cayenne": "0.25 t",
+   "chickpeas; drained": "1 C",
+   "celery; thin sliced": "2",
+   "green onions; thin sliced": "3",
+   "dried cranberries": "1 C",
+   "walnuts; chopped": "1 C",
+   "feta cheese; crumbled *": "1 C",
+   "eggs; beaten": "1"
+  },
+  "steps": [
+   "Pre-heat oven to 375 F.",
+   "In a small saucepan, combine broth, salt, oil, lemon juice, curry powder, cayenne, and garlic. Bring to a boil over high heat, stir in cous-cous. Remove from heat, cover, and let stand 15 min.",
+   "In a small skillet over medium heat, toast the walnuts.",
+   "In a large bowl, combine chickpeas, celery, green onions, dried cranberries, and feta cheese.",
+   "Mix in toasted walnuts, cooked cous-cous and eggs.",
+   "Cut peppers in half, place on a baking sheet, and stuff with mixture.",
+   "Bake stuffed peppers for 20 minutes."
+  ],
+  "tags": [
+   "vegan",
+   "vegetarian"
+  ],
+  "image": "stuffed-peppers.jpg",
+  "source": "https://www.thestar.com/life/food_wine/2014/05/15/fresh_bites_sweet_long_peppers_perfect_for_snacking_grilling_and_stuffing.html"
+ },
+ {
+  "id": "broccoli-quiche",
+  "title": "Broccoli Cheddar Quiche",
+  "time": {
+   "prep": "15",
+   "cook": "40"
+  },
+  "serves": "6",
+  "ingrs": {
+   "cheese; shredded cheddar": "1 C",
+   "flour; all-purpose": "0.75 C",
+   "butter; soft": "0.25 C",
+   "mustard; dry": "0.25 t",
+   "salt": "0.25 t",
+   "broccoli; chopped": "1.5 C",
+   "mushrooms; sliced": "1 C",
+   "onions; chopped fine": "1 C",
+   "evaporated milk": "1 C",
+   "eggs; beaten": "3",
+   "nutmeg": "0.25 t",
+   "pepper": "0.25 t"
+  },
+  "steps": [
+   "Pre-heat oven to 400 F.",
+   "To make the crust, mix together cheese, flour, mustard, butter, and salt. Press evenly onto bottom and sides of a 10-inch pie dish.",
+   "In a large pan over medium-high heat, saut\u00e9 broccoli and onions for 3 minutes. Add mushrooms and cook another 2 minutes.",
+   "To make the filling, mix together eggs evaporated milk, nutmeg, and pepper. Add broccoli, onions, and mushrooms.",
+   "Pour filling into the crust.",
+   "Bake for 15 minutes. Reduce heat to 375 F, then bake another 20 minutes, or until a knife in the centre comes out clean."
+  ],
+  "tags": [
+   "vegetarian"
+  ],
+  "image": "broccoli-quiche.jpg",
+  "source": "http://www.geniuskitchen.com/recipe/broccoli-quiche-26886"
+ },
+ {
+  "id": "protein-balls",
+  "title": "Peanut Butter Protein Balls",
+  "time": {
+   "prep": "10",
+   "cook": "0"
+  },
+  "serves": "5",
+  "ingrs": {
+   "peanut butter; crunchy": "2 C",
+   "protein powder; chocolate *": "0.5 C",
+   "oats; rolled": "1 C",
+   "trail mix; nuts and raisins": "1 C",
+   "honey; to taste": "0.25 C"
+  },
+  "steps": [
+   "Combine all ingredients together. Mix thoroughly.",
+   "Roll into 1 inch balls (about 20) and cool in the fridge."
+  ],
+  "tags": [
+   "snack",
+   "vegan",
+   "vegetarian",
+   "gluten-free"
+  ],
+  "image": "protein-balls.jpg",
+  "source": "https://www.yummymummykitchen.com/2017/10/trail-mix-peanut-butter-energy-balls.html"
+ },
+ {
+  "id": "chickpea-sandwiches",
+  "title": "Chickpeak \"Chicken Salad\" Sandwiches",
+  "time": {
+   "prep": "15",
+   "cook": "5"
+  },
+  "serves": "3",
+  "ingrs": {
+   "chickpeas; drained": "1 C",
+   "sunflower seeds; salted": "0.25 C",
+   "onion; red diced": "0.25",
+   "tahini": "3 T",
+   "Dijon mustard": "0.5 t",
+   "maple syrup": "1 T",
+   "dill": "2.5 T",
+   "hummus": "0.25 C",
+   "lemon juice": "1 T",
+   "garlic; minced": "2 cloves",
+   "soy milk": "2 T",
+   "bread; rustic": "6 slices",
+   "apple; sliced thin": "1",
+   "spinach; baby": "150 g"
+  },
+  "steps": [
+   "Create the sauce: combine hummus, lemon juice, garlic, soy milk, and 0.5 T dill.",
+   "In a large bowl, mash chickpeas in a large bowl for texture.",
+   "To make the filling, add to the chickpeas: sunflower seeds, onion, tahini, Dijon mustard, maple syrup, and remaining dill.",
+   "Toast the bread.",
+   "Slather the sauce on one slice of bread. On the other, layer the filling, spinach, apple slices, and the first slice."
+  ],
+  "tags": [
+   "vegan",
+   "vegetarian"
+  ],
+  "image": "chickpea-sandwiches.jpg",
+  "source": "https://minimalistbaker.com/chickpea-sunflower-sandwich/"
+ },
+ {
+  "id": "kale-fiesta",
+  "title": "Kale Fiesta Salad",
+  "time": {
+   "prep": "20",
+   "cook": "5"
+  },
+  "serves": "6",
+  "ingrs": {
+   "kale; ripped": "1 bunch",
+   "black beans; drained": "1 C",
+   "cranberries; dried": "1 C",
+   "feta cheese": "200 g",
+   "pumpkin seeds; toasted": "0.5 C",
+   "tortilla chips; crumbled": "3 C",
+   "olive oil": "3 T",
+   "lime juice": "2 limes",
+   "jalapenos; diced": "2",
+   "honey": "1 t",
+   "cumin": "0.5 t",
+   "coriander": "0.25 t",
+   "salt": "0.5 t"
+  },
+  "steps": [
+   "For the dressing, combine olive oil, lime juice, diced jalapenos, honey, cumin, coriander, and salt. Shake well.",
+   "Dress the kale, and top with black beans, cranberries, feta cheese, toasted pumpkin seeds, and crumbled tortilla chips."
+  ],
+  "tags": [
+   "gluten-free",
+   "vegetarian"
+  ],
+  "image": "kale-fiesta.jpg",
+  "source": "https://web.archive.org/web/20231214033919/https://cookieandkate.com/feta-fiesta-kale-salad-with-avocado-and-crispy-tortilla-strips/"
+ },
+ {
+  "id": "oatmeal-pancakes",
+  "title": "Blueberry Oatmeal Yogurt Pancakes",
+  "time": {
+   "prep": "15",
+   "cook": "10"
+  },
+  "serves": "4",
+  "ingrs": {
+   "flour; all-purpose": "1.66667 C",
+   "oats; rolled": "0.66667 C",
+   "sugar": "2 T",
+   "baking powder": "1.25 t",
+   "baking soda": "0.25 t",
+   "salt": "0.25 t",
+   "yogurt; plain Greek": "1 C",
+   "milk": "1 C",
+   "butter; unsalted, melted": "4 T",
+   "eggs; large": "2",
+   "blueberries": "1 C"
+  },
+  "steps": [
+   "Combine dry ingredients: flour, oats, sugar, baking powder, baking soda, salt.",
+   "Combine wet ingredients: yogurt, milk, butter, eggs.",
+   "Combine wet and dry ingredients, then add blueberries and gently toss.",
+   "On a non-stick pan over medium heat, scoop 1/3 C batter into small pancakes.",
+   "Cook until bubbles appear on top, then flip, and cook for another 2 minutes."
+  ],
+  "tags": [
+   "breakfast",
+   "vegetarian"
+  ],
+  "image": "oatmeal-pancakes.jpg",
+  "source": "https://damndelicious.net/2012/10/18/blueberry-oatmeal-yogurt-pancakes"
+ },
+ {
+  "id": "salmon-burgers",
+  "title": "Salmon Burgers",
+  "time": {
+   "prep": "10",
+   "cook": "10"
+  },
+  "serves": "2",
+  "ingrs": {
+   "oil; cooking": "1 T",
+   "salmon; cans, drained, de-boned": "1",
+   "eggs": "1",
+   "bread crumbs": "0.25 C",
+   "onion; chopped fine": "2 T",
+   "parsley; chopped fine": "0.25 C",
+   "chili powder": "1 t",
+   "burger buns": "2",
+   "Greek yogurt": "0.25 C",
+   "Sriracha sauce": "1 t",
+   "toppings; lettuce, etc.": "2"
+  },
+  "steps": [
+   "In a medium bowl, flake salmon and mix with eggs, bread crumbs, onion, parsley, and chili powder.",
+   "Heat the oil in a large skillet over medium heat.",
+   "Pack the mixture into patties, and fry for about 5 minutes per side.",
+   "Mix the Sriracha sauce and Greek yogurt to make the spicey mayo.",
+   "Top burger buns with cooked patties, spicey mayo, and other toppings."
+  ],
+  "tags": [
+   "fish"
+  ],
+  "image": "salmon-burgers.jpg",
+  "source": "https://www.allrecipes.com/recipe/81506/yummy-lemon-salmon-burgers/"
+ },
+ {
+  "id": "veggie-burgers",
+  "title": "Veggie Burgers",
+  "time": {
+   "prep": "30",
+   "cook": "10"
+  },
+  "serves": "5",
+  "ingrs": {
+   "oil; cooking": "1 T",
+   "brown rice; cooked": "1 C",
+   "walnuts; sub bread crumbs": "1 C",
+   "onion; white, diced": "0.5",
+   "black beans; drained": "1.5 C",
+   "bread crumbs": "0.33333 C",
+   "BBQ sauce": "3 T",
+   "chili powder": "1 T",
+   "cumin": "1 T",
+   "paprika": "1 T",
+   "brown sugar": "1 T",
+   "salt": "0.5 t",
+   "black pepper": "0.5 t"
+  },
+  "steps": [
+   "Start cooking the brown rice.",
+   "In a skillet over medium heat, toast walnuts for 5-7 minutes. Set aside.",
+   "Heat half the oil over medium heat in the same skillet. Saut\u00e9 onion for 4 minutes. Set aside.",
+   "Blend cooled walnuts with chili powder, cumin, paprika, salt, black pepper, and brown sugar. Set aside.",
+   "Mash cooked black beans to a paste.",
+   "Combine cooked brown rice, walnut-spice mixture, saut\u00e9ed onion, mashed black beans, bread crumbs, and BBQ sauce. Mix well.",
+   "Heat the other half of the oil over medium heat in the same skillet. Divide mixture into 5 patties and place on skillet.",
+   "Cook 3-4 minutes per side, flipping gently."
+  ],
+  "tags": [
+   "vegan",
+   "vegetarian"
+  ],
+  "image": "veggie-burgers.jpg",
+  "source": "https://minimalistbaker.com/easy-grillable-veggie-burgers/"
+ }
+]
