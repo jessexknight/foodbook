@@ -1,0 +1,199 @@
+/*------------------------------------------------------------------------------
+  font
+------------------------------------------------------------------------------*/
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #333;
+  background: #eee;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0pt;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+h1 { font-size: 250%; }
+h2 { font-size: 200%; }
+h3 { font-size: 150%; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/*------------------------------------------------------------------------------
+  layout
+------------------------------------------------------------------------------*/
+div {
+  box-sizing: border-box;
+/*  border: 1pt dotted red;*/
+}
+.grid {
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  overflow: auto;
+}
+.cell { float: left; }
+.full       { width: 100%; max-width: 1500px; }
+.half       { width: 50%; }
+.half-small { width: 40%; }
+.half-large { width: 60%; }
+.panel {
+  background: #fff;
+  margin: .5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+/*------------------------------------------------------------------------------
+  cards + responsive
+------------------------------------------------------------------------------*/
+.card-box {
+  width: 25%;
+  padding: .5rem;
+  line-height: 0pt;
+  aspect-ratio: 1;
+}
+.card,
+.card > img,
+.overlay {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 1rem;
+}
+.card {
+  position: relative;
+}
+.overlay {
+  visibility: hidden;
+  position: absolute;
+  top: 0pt;
+  line-height: normal;
+  padding: 2rem;
+  align-content: center;
+  text-align: center;
+  color: #333;
+  background: #fffc;
+}
+.card:hover .overlay {
+  visibility: visible;
+}
+@media (max-width: 1000px) { .half, .half-small, .half-large { width: 100%; } }
+@media (max-width: 1200px) { .card-box { width: 33.33%; } }
+@media (max-width: 1000px) { .card-box { width: 50%; } }
+@media (max-width:  667px) { .card-box { width: 100%; } }
+#title { padding-right: 1em; }
+/*------------------------------------------------------------------------------
+  icons
+------------------------------------------------------------------------------*/
+#tags {
+  position: relative;
+  top: 0pt;
+}
+.icon-box {
+  background: #eee;
+  padding: .5rem;
+  margin: .5rem;
+  width: 4rem;
+  border-radius: .5rem;
+  display: inline-block;
+  line-height: 1;
+}
+.icon {
+  width: 100%;
+}
+.breakfast   { background: #930; }
+.snack       { background: #c60; }
+.gluten-free { background: #fc0; }
+.vegan       { background: #6c0; }
+.vegetarian  { background: #0c9; }
+.fish        { background: #09c; }
+.dessert     { background: #c0c; }
+#image {
+  float: right;
+  border-radius: .5rem;
+  max-width: 100%;
+}
+/*------------------------------------------------------------------------------
+  tables
+------------------------------------------------------------------------------*/
+table {
+  margin: 1rem 0rem;
+  border-collapse: collapse;
+}
+tr {
+  margin: 10px;
+}
+td {
+  padding: 5px 10px;
+  vertical-align: top;
+}
+#recipe td:nth-child(1) {
+  text-align: right;
+}
+/*------------------------------------------------------------------------------
+  tooltips
+------------------------------------------------------------------------------*/
+.tip {
+  position: relative;
+}
+.tip, .tiptext {
+  padding: .5ex;
+  border-radius: .5ex;
+}
+.tip .tiptext {
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 0pt;
+  white-space: nowrap;
+  background: #fce;
+  display: none;
+}
+.tip:hover {
+  background: #fce;
+}
+.tip:hover .tiptext {
+  display: block;
+}
+/*------------------------------------------------------------------------------
+  inputs
+------------------------------------------------------------------------------*/
+button, input {
+  font-size: 100%;
+  padding: 1ex;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: .5rem;
+  color: inherit;
+}
+#serv {
+  width: 3em;
+}
+.search-wrap {
+  padding: 1rem;
+}
+#copy,
+#search {
+  width: 100%;
+  height: 3rem;
+  box-sizing: border-box;
+}
+/*------------------------------------------------------------------------------
+  interaction
+------------------------------------------------------------------------------*/
+.rowclick tr.selected {
+  color: #999;
+}
+a:hover,
+input:hover {
+  color: #c06;
+}
+button:hover,
+.rowclick tr:hover {
+  cursor: pointer;
+  color: #c06;
+}
+button:active {
+  color: #fce;
+}
+
