@@ -1,5 +1,6 @@
 // main ---------------------------------------------------
 $(document).ready(function(){
+  if (window.matchMedia('(prefers-color-scheme:dark)').matches){ mode() }
   serv = $('#serv')
   $.getJSON('index.json',function(foods){
     cards = $('#menu').html(majo(foods,genCard)).find('.card-box')
@@ -34,9 +35,9 @@ $(document).ready(function(){
 // home ---------------------------------------------------
 function mode(e){
   var body = $('body')
-  body.toggleClass('dark');
-  body.toggleClass('light');
-  $('#mode').attr('src','img/icon/'+body.attr('class')+'.png');
+  body.toggleClass('dark')
+  body.toggleClass('light')
+  $('#mode').attr('src','img/icon/'+body.attr('class')+'.png')
 }
 function query(e){ if (e.which==13){
   window.location.hash = '#q='+$('#search')[0].value
