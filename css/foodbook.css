@@ -1,12 +1,33 @@
 /*------------------------------------------------------------------------------
-  font
+  light / dark
+------------------------------------------------------------------------------*/
+body {
+  --clr-fore: #c06;
+  --done: #9999;
+}
+.light {
+  --text: #333;
+  --back: #eee;
+  --fore: #fff;
+  --over: #fffc;
+  --clr-back: #fde;
+}
+.dark {
+  --text: #ccc;
+  --back: #111;
+  --fore: #222;
+  --over: #222c;
+  --clr-back: #624;
+}
+/*------------------------------------------------------------------------------
+  text
 ------------------------------------------------------------------------------*/
 body {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.2rem;
   line-height: 1.5;
-  color: #333;
-  background: #eee;
+  color: var(--text);
+  background: var(--back);
 }
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0pt;
@@ -39,7 +60,7 @@ div {
 .half-small { width: 40%; }
 .half-large { width: 60%; }
 .panel {
-  background: #fff;
+  background: var(--fore);
   margin: .5rem;
   padding: 2rem;
   border-radius: 1rem;
@@ -71,8 +92,8 @@ div {
   padding: 2rem;
   align-content: center;
   text-align: center;
-  color: #333;
-  background: #fffc;
+  color: var(--text);
+  background: var(--over);
 }
 .card:hover .overlay {
   visibility: visible;
@@ -90,13 +111,16 @@ div {
   top: 0pt;
 }
 .icon-box {
-  background: #eee;
+  background: var(--back);
   padding: .5rem;
   margin: .5rem;
   width: 4rem;
   border-radius: .5rem;
   display: inline-block;
   line-height: 1;
+}
+.icon-box:hover {
+  background: var(--clr-back);
 }
 .icon {
   width: 100%;
@@ -146,23 +170,23 @@ td {
   bottom: 100%;
   left: 0pt;
   white-space: nowrap;
-  background: #fce;
+  background: var(--clr-back);
   display: none;
 }
 .tip:hover {
-  background: #fce;
+  background: var(--clr-back);
 }
 .tip:hover .tiptext {
   display: block;
 }
 /*------------------------------------------------------------------------------
-  inputs
+  inputs + interaction
 ------------------------------------------------------------------------------*/
 button, input {
   font-size: 100%;
   padding: 1ex;
-  background: none;
-  border: 1px solid #ccc;
+  background: var(--back);
+  border: none;
   border-radius: .5rem;
   color: inherit;
 }
@@ -178,22 +202,23 @@ button, input {
   height: 3rem;
   box-sizing: border-box;
 }
-/*------------------------------------------------------------------------------
-  interaction
-------------------------------------------------------------------------------*/
 .rowclick tr.selected {
-  color: #999;
+  color: var(--done);
 }
 a:hover,
 input:hover {
-  color: #c06;
+  color: var(--clr-fore);;
 }
 button:hover,
 .rowclick tr:hover {
   cursor: pointer;
-  color: #c06;
+  color: var(--clr-fore);
+}
+button:hover,
+input:hover {
+  background: var(--clr-back);
 }
 button:active {
-  color: #fce;
+  color: var(--clr-fore);
 }
 

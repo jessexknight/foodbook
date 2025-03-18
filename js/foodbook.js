@@ -24,6 +24,7 @@ $(document).ready(function(){
       }
       window.scrollTo(0,0)
     }
+    $('#mode').on('click',mode)
     $('#copy').on('click',copy)
     $('#search').on('keypress',query)
     $(window).on('hashchange',reload)
@@ -31,6 +32,12 @@ $(document).ready(function(){
   })
 })
 // home ---------------------------------------------------
+function mode(e){
+  var body = $('body')
+  body.toggleClass('dark');
+  body.toggleClass('light');
+  $('#mode').attr('src','img/icon/'+body.attr('class')+'.png');
+}
 function query(e){ if (e.which==13){
   window.location.hash = '#q='+$('#search')[0].value
 }}
