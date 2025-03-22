@@ -72,7 +72,7 @@ function genTag(tag){
 function scaleIngr(qty,scale,prec=100){
   var qtys = qty.split(' ')
   qtys[0] = (Math.round(parseFloat(scale*qtys[0])*prec)/prec).toString()
-  return qtys.join(' ')
+  return qtys.join('&nbsp')
 }
 function genIngrRow(ingr,qty,scale){
   var ingrs = ingr.split('; ')

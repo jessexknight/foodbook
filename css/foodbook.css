@@ -59,14 +59,15 @@ div {
 .cell { float: left; }
 .full       { width: 100%; max-width: 1500px; }
 .half       { width: 50%; }
-.half-small { width: 33%; }
-.half-large { width: 67%; }
+.half-small { width: 40%; }
+.half-large { width: 60%; }
 .panel {
   background: var(--fore);
   margin: .5rem;
   padding: 2rem;
   border-radius: 1rem;
 }
+#nav .panel { padding: 1rem; }
 /*------------------------------------------------------------------------------
   cards + responsive
 ------------------------------------------------------------------------------*/
@@ -116,7 +117,7 @@ div {
   background: var(--back);
   padding: .5rem;
   margin: .5rem;
-  width: 4rem;
+  width: 3rem;
   border-radius: .5rem;
   display: inline-block;
   line-height: 1;
@@ -146,11 +147,8 @@ table {
   margin: 1rem 0rem;
   border-collapse: collapse;
 }
-tr {
-  margin: 10px;
-}
 td {
-  padding: 5px 10px;
+  padding: .25rem .5rem;
   vertical-align: top;
 }
 #recipe td:nth-child(1) {
@@ -196,7 +194,7 @@ button, input {
   width: 3em;
 }
 .search-wrap {
-  padding: 1rem;
+  padding: .5rem;
 }
 #copy,
 #search {
@@ -206,6 +204,7 @@ button, input {
 }
 .rowclick tr.selected {
   color: var(--done);
+  text-decoration: line-through;
 }
 a:hover,
 input:hover {
