@@ -5,6 +5,7 @@ $(document).ready(function(){
   $.getJSON('index.json',function(foods){
     cards = $('#menu').html(majo(foods,genCard)).find('.card-box')
     search = function(q){
+      $('#page-title').html((q?q+' | ':'')+'Foodbook')
       cards.attr('hidden',false)
       if (q === undefined || q.length == 0){ return }
       var fuse = new Fuse(Object.values(foods),
