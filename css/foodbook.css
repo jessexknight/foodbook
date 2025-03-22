@@ -161,6 +161,7 @@ td {
 }
 #recipe td:nth-child(1) {
   text-align: right;
+  white-space: nowrap;
 }
 /*------------------------------------------------------------------------------
   tooltips
