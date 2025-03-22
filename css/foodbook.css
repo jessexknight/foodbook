@@ -122,12 +122,7 @@ div {
   display: inline-block;
   line-height: 1;
 }
-.icon-box:hover {
-  background: var(--clr-back);
-}
-.icon {
-  width: 100%;
-}
+.icon { width: 100%; }
 .breakfast   { background: #930; }
 .snack       { background: #c60; }
 .gluten-free { background: #fc0; }
@@ -135,6 +130,15 @@ div {
 .vegetarian  { background: #0c9; }
 .fish        { background: #09c; }
 .dessert     { background: #c0c; }
+#nav .icon-box:hover {
+  background: var(--clr-back);
+}
+#nav .icon-box .icon {
+  filter: brightness(0) invert(0.5);
+}
+#nav .icon-box:hover .icon {
+  filter: none;
+}
 #image {
   float: right;
   border-radius: .5rem;
