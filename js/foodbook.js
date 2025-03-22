@@ -27,7 +27,8 @@ $(document).ready(function(){
     }
     $('#mode').on('click',mode)
     $('#copy').on('click',copy)
-    $('#search').on('keypress',query)
+    $('#search').on('click',query)
+    $('#searchbar').on('keypress',onEnter(query))
     $(window).on('hashchange',reload)
     reload()
   })
@@ -37,11 +38,11 @@ function mode(e){
   var body = $('body')
   body.toggleClass('dark')
   body.toggleClass('light')
-  $('#mode').attr('src','img/icon/'+body.attr('class')+'.png')
+  $('#mode img').attr('src','img/icon/'+body.attr('class')+'.png')
 }
-function query(e){ if (e.which==13){
-  window.location.hash = '#q='+$('#search')[0].value
-}}
+function query(e){
+  window.location.hash = '#q='+$('#searchbar')[0].value
+}
 function genCard(food){
   return '<div class="cell card-box" id="'+food.id+'"><a href="#'+food.id+'"><div class="card">'+
     '<img src="img/food/'+food.image+'"/><div class="overlay"><h3>'+food.title+'</h3></div>'+
@@ -103,6 +104,7 @@ function rowclick(e) {
   $(this).toggleClass('selected')
 }
 // utils --------------------------------------------------
+onEnter = function(f){ return function(e){ if (e.key=='Enter'){ f(e) } } }
 majo = function(arr,fun,...args){ return arr.map(fun,...args).join('') }
 mojo = function(obj,fun,...args){ str = ''
   for (var key in obj){ str += fun(key,obj[key],...args) }

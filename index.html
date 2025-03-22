@@ -12,21 +12,22 @@
     <div class='cell full'>
       <div class='panel'>
         <div class='grid'>
-          <div class='cell half'>
+          <div class='cell flex'>
             <a href='#'>
               <div class='icon-box'><img class='icon' src='img/icon/home.png'/></div>
             </a>
-            <a href='' onclick='return false;'>
-              <div class='icon-box'><img class='icon' src='img/icon/light.png' id='mode'/></div>
+            <a id='mode' href='' onclick='return false;'>
+              <div class='icon-box'><img class='icon' src='img/icon/light.png'/></div>
             </a>
             <a href='https://github.com/jessexknight/foodbook' target='_blank'>
               <div class='icon-box'><img class='icon' src='img/icon/github.png'/></div>
             </a>
-          </div>
-          <div class='cell half'>
-            <div class='search-wrap'>
-              <input type='text' id='search' name='q' placeholder='search'>
+            <div id='searchwrap'>
+              <input id='searchbar' type='text' name='q' placeholder='search'>
             </div>
+            <a id='search' href='' onclick='return false;'>
+              <div class='icon-box'><img class='icon' src='img/icon/search.png'/></div>
+            </a>
           </div>
         </div>
       </div>
