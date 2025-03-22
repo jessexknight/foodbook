@@ -1,7 +1,7 @@
 /*------------------------------------------------------------------------------
   light / dark
 ------------------------------------------------------------------------------*/
-body {
+html {
   --clr-fore: #c06;
   --done: #9999;
 }
@@ -22,12 +22,10 @@ body {
 /*------------------------------------------------------------------------------
   text
 ------------------------------------------------------------------------------*/
-body {
+html {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.2rem;
   line-height: 1.5;
-  color: var(--text);
-  background: var(--back);
 }
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0pt;
@@ -44,6 +42,10 @@ a {
 /*------------------------------------------------------------------------------
   layout
 ------------------------------------------------------------------------------*/
+body {
+  background: var(--back);
+  color: var(--text);
+}
 div {
   box-sizing: border-box;
 /*  border: 1pt dotted red;*/
@@ -57,8 +59,8 @@ div {
 .cell { float: left; }
 .full       { width: 100%; max-width: 1500px; }
 .half       { width: 50%; }
-.half-small { width: 40%; }
-.half-large { width: 60%; }
+.half-small { width: 33%; }
+.half-large { width: 67%; }
 .panel {
   background: var(--fore);
   margin: .5rem;
@@ -100,8 +102,8 @@ div {
 }
 @media (max-width: 1000px) { .half, .half-small, .half-large { width: 100%; } }
 @media (max-width: 1200px) { .card-box { width: 33.33%; } }
-@media (max-width: 1000px) { .card-box { width: 50%; } }
-@media (max-width:  667px) { .card-box { width: 100%; } }
+@media (max-width: 1000px) { .card-box { width: 50%; }  html { font-size: 85%; } }
+@media (max-width:  667px) { .card-box { width: 100%; } html { font-size: 70%; } }
 #title { padding-right: 1em; }
 /*------------------------------------------------------------------------------
   icons
