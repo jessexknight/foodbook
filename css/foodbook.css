@@ -17,7 +17,7 @@ html {
   --back: #111;
   --fore: #222;
   --over: #222c;
-  --clr-back: #624;
+  --clr-back: #402;
 }
 /*------------------------------------------------------------------------------
   text
@@ -159,6 +159,9 @@ td {
   padding: .25rem .5rem;
   vertical-align: top;
 }
+#tab-serv td {
+  vertical-align: baseline;
+}
 #recipe td:nth-child(1) {
   text-align: right;
   white-space: nowrap;
@@ -201,6 +204,7 @@ button, input {
 }
 #serv {
   width: 3em;
+  margin-left: -.5rem;
 }
 #searchwrap {
   max-width: 30rem;
