@@ -88,7 +88,7 @@
    "olive oil": "0.25 C"
   },
   "steps": [
-   "Preheat oven to 400 F.",
+   "Pre-heat oven to 400 F.",
    "In a large bowl, toss beets and carrots in 1 t red wine vinegar and 2 t olive oil.",
    "In a large baking tray, bake beets and carrots for 45 minutes. Stir half-way through cooking.",
    "Combine vegetable broth and quinoa. Bring to a boil uncovered, then  cover and simmer until quinoa is cooked, about 20 minutes.",
@@ -283,6 +283,48 @@
   ],
   "image": "chickpea-sandwiches.jpg",
   "source": "https://minimalistbaker.com/chickpea-sunflower-sandwich/"
+ },
+ {
+  "id": "frankies",
+  "title": "Frankies: Bombay burritos",
+  "time": {
+   "prep": "30",
+   "cook": "30"
+  },
+  "serves": "8",
+  "ingrs": {
+   "potatoes; medium, diced": "5",
+   "curry powder": "2 T",
+   "cauliflower; medium": "1 head",
+   "chickpeas; drained": "2 cans",
+   "cumin": "2 T",
+   "coriander": "2 T",
+   "chili flakes": "0.5 t",
+   "onion; red": "1",
+   "vinegar; white": "0.5 C",
+   "sugar": "1 T",
+   "chutney; coriander mint": "0.5 C",
+   "oil; cooking": "3 T",
+   "salt": "2 t",
+   "spinach; ripped": "1 bunch",
+   "tortillas": "8"
+  },
+  "steps": [
+   "Preheat the oven to 425 F.",
+   "Peel, dice, and boil the potatoes for about 25 minutes.",
+   "Cut the cauliflower into medium florets, and drain the chickpeas.",
+   "Toss the cauliflower and chickpeas together in oil, cumin, coriander, chili flakes, and 1 t salt (not curry powder), then roast for about 20 minutes.",
+   "For pickled onions: thinly slice the onion.",
+   "Bring equal parts vinegar and water to a boil in a small pot. Add sugar, sliced onion, and (optional) whole spices. Simmer for 30 seconds, then let cool.",
+   "Drain the boiled potatoes but keep about 0.5 C water. Mash the potatoes to a spreadable consistency, adding curry powder, and 1 t salt.",
+   "Make or buy the chutney (recipe in source link).",
+   "Assemble the burritos: spread the potatoes on tortillas as a base. Add roasted cauliflower and chickpea filling. Top with pickled onions, spinach, and chutney."
+  ],
+  "tags": [
+   "vegetarian"
+  ],
+  "image": "frankies.jpg",
+  "source": "https://www.feastingathome.com/indian-frankie-recipe"
  },
  {
   "id": "kale-fiesta",
