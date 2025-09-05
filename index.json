@@ -285,6 +285,42 @@
   "source": "https://minimalistbaker.com/chickpea-sunflower-sandwich/"
  },
  {
+  "id": "mega-crunchy-salad",
+  "title": "Mega Crunchy Salad",
+  "time": {
+   "prep": "20",
+   "cook": "0"
+  },
+  "serves": "4",
+  "ingrs": {
+   "quinoa; uncooked": "1 C",
+   "water": "2 C",
+   "pumpkin seeds; toasted": "0.5 C",
+   "lettuce; romain, chopped": "1 head",
+   "carrots; diced": "1 C",
+   "cabbage; chopped fine": "1 C",
+   "cranberries; dried": "0.5 C",
+   "olive oil": "0.3333 C",
+   "lime juice": "2 limes",
+   "rice vinegar": "2 T",
+   "honey": "2 t",
+   "garlic; minced": "1 T",
+   "chili powder": "0.25 t",
+   "salt": "0.5 t"
+  },
+  "steps": [
+   "Combine water and quinoa. Bring to a boil uncovered, then cover and simmer until quinoa is cooked, about 20 minutes.",
+   "For the dressing, combine olive oil, lime juice, rice vinegar, honey, garlic, chili powder, and salt. Shake well.",
+   "Dress the lettuce, carrots, and cabbage, and top with quinoa, pumpkin seeds, and cranberries."
+  ],
+  "tags": [
+   "vegan",
+   "vegetarian"
+  ],
+  "image": "mega-crunchy-salad.jpg",
+  "source": "https://cookieandkate.com/mega-crunchy-romaine-salad-recipe/"
+ },
+ {
   "id": "frankies",
   "title": "Frankies: Bombay burritos",
   "time": {
