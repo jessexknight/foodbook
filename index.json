@@ -295,6 +295,10 @@
   "ingrs": {
    "quinoa; uncooked": "1 C",
    "water": "2 C",
+   "chickpeas; drained": "1 can",
+   "paprika": "0.5 t",
+   "garlic powder": "0.25 t",
+   "oil": "1 T",
    "pumpkin seeds; toasted": "0.5 C",
    "lettuce; romain, chopped": "1 head",
    "carrots; diced": "1 C",
@@ -310,6 +314,7 @@
   },
   "steps": [
    "Combine water and quinoa. Bring to a boil uncovered, then cover and simmer until quinoa is cooked, about 20 minutes.",
+   "Toss the chickpeas in oil, paprika, and garlic powder, then roast for about 20 minutes.",
    "For the dressing, combine olive oil, lime juice, rice vinegar, honey, garlic, chili powder, and salt. Shake well.",
    "Dress the lettuce, carrots, and cabbage, and top with quinoa, pumpkin seeds, and cranberries."
   ],
