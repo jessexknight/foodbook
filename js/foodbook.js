@@ -103,6 +103,9 @@ function copy(e){
     .replace(/<\/td><td>/g,' ')
     .replace(/<\/?.*?>/g,'')
   navigator.clipboard.writeText(str)
+  btn = $('#copy')
+  btn.html('Copied!');
+  btn.on('mouseout',function(e){ btn.html('Copy to clipboard') });
 }
 function rowclick(e) {
   $(this).toggleClass('selected')
