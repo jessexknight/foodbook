@@ -69,7 +69,10 @@ function genRecipe(food){
   serv.val(parseInt(food.serves)).change()
 }
 function genTag(tag){
-  return '<div class="icon-box '+tag+'"><img class="icon" src="img/icon/tag/'+tag+'.png"/></div>'
+  return '<div class="icon-box tip '+tag+'">'+
+    '<img class="icon" src="img/icon/tag/'+tag+'.png"/>'+
+    '<span class="tiptext">'+tag+'</span>'+
+  '</div>'
 }
 function scaleIngr(qty,scale,prec=100){
   var qtys = qty.split(' ')

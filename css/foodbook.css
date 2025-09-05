@@ -183,11 +183,14 @@ td {
   bottom: 100%;
   left: 0pt;
   white-space: nowrap;
-  background: var(--clr-back);
+  background: inherit;
   display: none;
 }
-.tip:hover {
+#tab-steps .tip:hover {
   background: var(--clr-back);
+}
+#tags .tip:hover {
+  color: white;
 }
 .tip:hover .tiptext {
   display: block;
